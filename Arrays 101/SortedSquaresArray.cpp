@@ -25,13 +25,22 @@ A is sorted in non-decreasing order.
 
 std::vector<int> sortedSquares(std::vector<int>& A)
 {
-    std::vector<int> result;
-   for(int i=0;i< A.size();i++)
-   {
-       result.push_back(A[i]*A[i]);
-   }
-    std::sort (result.begin(),result.end());
-    return result;
+  vector<int> result(A.size());
+      int beg=0,end=A.size()-1,fill=A.size()-1;
+      while(beg<=end)
+      {
+          if(abs(A[end])<abs(A[beg]))
+          {
+              result[fill--]=A[beg]*A[beg];
+              beg++;
+          }
+          else
+          {
+            result[fill--]=A[end]*A[end];
+              end--;
+          }
+      }
+      return result;
 }
 
 // the code below does not change
@@ -55,4 +64,4 @@ int main(int argc, char const *argv[])
   std::cout << '\n';
   return 0;
 }
-/* this solution was 116ms */
+/* this solution was 44ms */
