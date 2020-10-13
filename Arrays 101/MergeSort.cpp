@@ -21,7 +21,7 @@ nums2.length == n
 #include <vector>
 #include <iostream>
 #include <sstream>
-void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
+void merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n)
 {
   int i=0,j=0;
   while (i<m+j && j<n)

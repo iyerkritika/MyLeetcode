@@ -13,7 +13,7 @@ Minimize the total number of operations.
 #include <vector>
 #include <iostream>
 #include <sstream>
-void moveZeroes(vector<int>& nums)
+void moveZeroes(std::vector<int>& nums)
 {
     int j=0;
     for (int i=0;i<nums.size();i++)

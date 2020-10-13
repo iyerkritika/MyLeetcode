@@ -15,10 +15,10 @@ Constraints:
 #include <vector>
 #include <iostream>
 #include <sstream>
-vector<int> replaceElements(vector<int>& arr)
+std::vector<int> replaceElements(std::vector<int>& arr)
 {
     int i;
-    pair<int,int> MaxAndInd(-1,-1);
+    std::pair<int,int> MaxAndInd(-1,-1);
     for(i=0; i<arr.size()-1;i++)
     {
         if(MaxAndInd.second<=i)

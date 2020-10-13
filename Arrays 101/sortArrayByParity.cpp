@@ -15,9 +15,9 @@ Constraints:
 #include <vector>
 #include <iostream>
 #include <sstream>
-vector<int> sortArrayByParity(vector<int>& A)
+std::vector<int> sortArrayByParity(std::vector<int>& A)
 {
-   vector<int> result(A.size());
+   std::vector<int> result(A.size());
    int even=0,odd=result.size()-1;
    for(int i=0;i<A.size();i++)
    {

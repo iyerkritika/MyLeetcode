@@ -27,7 +27,7 @@ Contraints:
 #include <vector>
 #include <iostream>
 #include <sstream>
-bool validMountainArray(vector<int>& A)
+bool validMountainArray(std::vector<int>& A)
 {
     bool peak=false;
     if(A.size()<3)

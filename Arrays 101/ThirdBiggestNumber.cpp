@@ -22,46 +22,46 @@ Both numbers with value 2 are both considered as second maximum.
 #include <vector>
 #include <iostream>
 #include <sstream>
-int thirdMax(vector<int>& nums)
+int thirdMax(std::vector<int>& nums)
 {
-  map<int,int> max;
-    bool IntMinExists =false;
-    max.insert(pair<int,int>(1,INT_MIN));
-    max.insert(pair<int,int>(2,INT_MIN));
-    max.insert(pair<int,int>(3,INT_MIN));
-   for(int i=0;i<nums.size();i++)
-    {
-       IntMinExists = nums[i]==INT_MIN || IntMinExists;
-        if(nums[i]>=max[3])
-        {
-            if(nums[i]>max[2])
-            {
-                if(nums[i]>max[1])
-                {
-                    max[3]=max[2];
-                    max[2]=max[1];
-                    max[1]=nums[i];
-                }
-                else if(nums[i]<max[1])
-                {
-                    max[3]=max[2];
-                    max[2]=nums[i];
-                }
-            }
-            else if(nums[i]<max[2])
-            {
-                max[3]=nums[i];
-            }
-        }
-    }
-    if((IntMinExists && max[2]!=INT_MIN)|| (!IntMinExists && max[3]!=INT_MIN))
-    {
-        return max[3];
-    }
-    else
-    {
-       return max[1];
-    }
+  std::map<int,int> max;
+  bool IntMinExists =false;
+  max.insert(pair<int,int>(1,INT_MIN));
+  max.insert(pair<int,int>(2,INT_MIN));
+  max.insert(pair<int,int>(3,INT_MIN));
+  for(int i=0;i<nums.size();i++)
+  {
+     IntMinExists = nums[i]==INT_MIN || IntMinExists;
+      if(nums[i]>=max[3])
+      {
+          if(nums[i]>max[2])
+          {
+              if(nums[i]>max[1])
+              {
+                  max[3]=max[2];
+                  max[2]=max[1];
+                  max[1]=nums[i];
+              }
+              else if(nums[i]<max[1])
+              {
+                  max[3]=max[2];
+                  max[2]=nums[i];
+              }
+          }
+          else if(nums[i]<max[2])
+          {
+              max[3]=nums[i];
+          }
+      }
+  }
+  if((IntMinExists && max[2]!=INT_MIN)|| (!IntMinExists && max[3]!=INT_MIN))
+  {
+      return max[3];
+  }
+  else
+  {
+     return max[1];
+  }
 }
 
 // the code below does not change

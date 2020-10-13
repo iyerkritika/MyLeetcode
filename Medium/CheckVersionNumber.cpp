@@ -42,10 +42,9 @@ All the given revisions in version1 and version2 can be stored in a 32-bit integ
 
 */
 
-#include <vector>
 #include <iostream>
-#include <sstream>
-int compareVersion(string version1, string version2)
+#include <string>
+int compareVersion(std::string version1, std::string version2)
 {
   std::size_t found1,found2;
   if(version1==version2)
@@ -77,7 +76,7 @@ int compareVersion(string version1, string version2)
 // the code below does not change
 int main(int argc, char const *argv[])
 {
-  string s1,s2;
+  std::string s1,s2;
   int answer;
   std::cout << "Enter first version number.\n" ;
   cin>>s1;
@@ -86,15 +85,15 @@ int main(int argc, char const *argv[])
   answer = compareVersion(s1,s2);
   if(answer==0)
   {
-    cout<<"The version numbers are the same. \n";
+    std::cout<<"The version numbers are the same. \n";
   }
   else if(answer == 1)
   {
-    cout<<"Version 1 is bigger. \n"
+    std::cout<<"Version 1 is bigger. \n";
   }
   else
   {
-    cout<<"Version 2 is bigger. \n"
+    std::cout<<"Version 2 is bigger. \n";
   }
   return 0;
 }

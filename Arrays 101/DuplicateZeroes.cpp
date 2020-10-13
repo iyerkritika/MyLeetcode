@@ -22,9 +22,9 @@ Contraints:
 #include <vector>
 #include <iostream>
 #include <sstream>
-void duplicateZeros(vector<int>& arr)
+void duplicateZeros(std::vector<int>& arr)
 {
-   vector<int> dupArr = vector<int>(arr.size());
+   std::vector<int> dupArr = std::vector<int>(arr.size());
    int i=0,j=0;
   while (i<arr.size()&& j<arr.size())
   {
