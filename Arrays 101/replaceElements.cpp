@@ -23,12 +23,12 @@ std::vector<int> replaceElements(std::vector<int>& arr)
     {
         if(MaxAndInd.second<=i)
         {
-         MaxAndInd = make_pair(-1,-1);
+         MaxAndInd = std::make_pair(-1,-1);
             for(int j=i+1;j<arr.size();j++)
             {
                 if(MaxAndInd.first<arr[j])
                 {
-                    MaxAndInd = make_pair(arr[j],j);
+                    MaxAndInd = std::make_pair(arr[j],j);
                 }
             }
         }
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
   std::vector<int> numbers;
   int input;
   std::string line;
-  std::cout << "Enter a vector of numbers. If there are invalid numbers they will be discarded" << '\n';
+  std::cout << "Enter a vector of numbers from 1 to 100000. If there are invalid numbers they will be discarded" << '\n';
   std::getline(std::cin, line);
   std::istringstream stream(line);
     while (stream >> input && numbers.size()<=10000)

@@ -13,6 +13,7 @@ Minimize the total number of operations.
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <bits/stdc++.h>
 void moveZeroes(std::vector<int>& nums)
 {
     int j=0;
@@ -40,7 +41,7 @@ int main(int argc, char const *argv[])
       if(input >=INT_MIN && input<=INT_MAX)
         numbers.push_back(input);
   std::cout << "the array after moving Zeroes and keeping the same size is " << '\n';
-  numbers = moveZeroes(numbers);
+  moveZeroes(numbers);
   for (int i=0;i<numbers.size();i++)
   {
     std::cout << numbers[i]<<' ';

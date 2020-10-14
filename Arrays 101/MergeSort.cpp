@@ -58,8 +58,8 @@ int main(int argc, char const *argv[])
   m = numbers1.size();
   std::cout << "Enter a vector of sorted numbers between -10^9 and 10^9 if there are invalid numbers they will be discarded" << '\n';
   std::getline(std::cin, line);
-  std::istringstream stream(line);
-    while (stream >> input && numbers2.size()<=10000)
+  std::istringstream stream2(line);
+    while (stream2 >> input && numbers2.size()<=10000)
       if(input <=-10^9 && input>=10^9)
         numbers2.push_back(input);
   n = numbers2.size();

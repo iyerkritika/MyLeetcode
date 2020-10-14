@@ -53,7 +53,7 @@ int main(int argc, char const *argv[])
       if(input <=9 && input>=0)
         numbers.push_back(input);
   std::cout << "the array after duplicating Zeroes and keeping the same size is " << '\n';
-  numbers = duplicateZeros(numbers);
+  duplicateZeros(numbers);
   for (int i=0;i<numbers.size();i++)
   {
     std::cout << numbers[i]<<' ';

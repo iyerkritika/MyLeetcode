@@ -20,15 +20,17 @@ Both numbers with value 2 are both considered as second maximum.
 */
 
 #include <vector>
+#include <map>
 #include <iostream>
 #include <sstream>
+#include <bits/stdc++.h>
 int thirdMax(std::vector<int>& nums)
 {
   std::map<int,int> max;
   bool IntMinExists =false;
-  max.insert(pair<int,int>(1,INT_MIN));
-  max.insert(pair<int,int>(2,INT_MIN));
-  max.insert(pair<int,int>(3,INT_MIN));
+  max.insert(std::pair<int,int>(1,INT_MIN));
+  max.insert(std::pair<int,int>(2,INT_MIN));
+  max.insert(std::pair<int,int>(3,INT_MIN));
   for(int i=0;i<nums.size();i++)
   {
      IntMinExists = nums[i]==INT_MIN || IntMinExists;

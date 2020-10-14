@@ -32,6 +32,7 @@ for (int i = 0; i < len; i++) {
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <bits/stdc++.h>
 int removeDuplicates(std::vector<int>& nums)
 {
     if(nums.empty())

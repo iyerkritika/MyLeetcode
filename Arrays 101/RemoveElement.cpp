@@ -32,7 +32,8 @@ l+0
 #include <vector>
 #include <iostream>
 #include <sstream>
-int removeElement(vector<int>& nums, int val)
+#include <bits/stdc++.h>
+int removeElement(std::vector<int>& nums, int val)
 {
     int size = nums.size();
     for (int i=0;i<size;i++)
@@ -54,7 +55,7 @@ int removeElement(vector<int>& nums, int val)
 int main(int argc, char const *argv[])
 {
   std::vector<int> numbers;
-  int input;
+  int input,val;
   std::string line;
   std::cout << "Enter a vector of numbers. If there are invalid numbers they will be discarded" << '\n';
   std::getline(std::cin, line);
@@ -62,8 +63,10 @@ int main(int argc, char const *argv[])
     while (stream >> input && numbers.size()<=10000)
       if(input >=INT_MIN && input<=INT_MAX)
         numbers.push_back(input);
+  std::cout << "please enter the value to remove from this" << '\n';
+  std::cin>> val;
   std::cout << "the array after removing duplicates is " << '\n';
-  int len = removeDuplicates(numbers);
+  int len = removeElement(numbers,val);
   for (int i=0;i<len;i++)
   {
     std::cout << numbers[i]<<' ';

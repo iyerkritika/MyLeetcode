@@ -75,7 +75,8 @@ int main(int argc, char const *argv[])
     while (stream >> input && numbers.size()<=10000)
       if(input >=0 && input<=10000)
         numbers.push_back(input);
-  std::cout << "the array " <<validMountainArray(numbers)?"is ": "isn't "<<"a mountain array" << '\n';
+  std::string descision = validMountainArray(numbers)?"is ": "isn't ";
+  std::cout << "the array " << descision << "a mountain array \n";
   return 0;
 }
 /* this solution was 56ms */
