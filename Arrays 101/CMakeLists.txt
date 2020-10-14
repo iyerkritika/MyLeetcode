@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.5)
 # set the project name
-project(Arrays101 VERSION1.0)
+project(Arrays101)
 
 # specify the C++ standard
-set(CMAKE_CPP_STANDARD 11)
-set(CMAKE_CPP_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # add the executable
 add_executable(MaxConsecutiveOnes MaxConsecutiveOnes.cpp)
