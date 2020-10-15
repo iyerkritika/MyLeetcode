@@ -79,9 +79,9 @@ int main(int argc, char const *argv[])
   std::string s1,s2;
   int answer;
   std::cout << "Enter first version number.\n" ;
-  cin>>s1;
+  std::cin>>s1;
   std::cout << "Enter second version number.\n" ;
-  cin>>s2;
+  std::cin>>s2;
   answer = compareVersion(s1,s2);
   if(answer==0)
   {
