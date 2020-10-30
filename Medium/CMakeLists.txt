@@ -8,3 +8,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # add the executable
 add_executable(CheckVersionNumber CheckVersionNumber.cpp)
+add_executable(ProductExceptSelf ProductExceptSelf.cpp)

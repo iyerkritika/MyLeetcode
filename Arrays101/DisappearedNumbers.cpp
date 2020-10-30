@@ -16,7 +16,6 @@ Output:
 #include <iostream>
 #include <sstream>
 #include <bits/stdc++.h>
-#include <algorithm>
 
 std::vector<int> findDisappearedNumbers(std::vector<int>& nums)
 {
@@ -53,7 +52,7 @@ int main(int argc, char const *argv[])
   std::cout << "the Disappeared Numbers are" << '\n';
   for (int i=0;i<result.size();i++)
   {
-    std::cout << numbers[i]<<' ';
+    std::cout << result[i]<<' ';
   }
   std::cout << '\n';
   return 0;
