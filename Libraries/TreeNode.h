@@ -11,6 +11,6 @@ struct TreeNode
    TreeNode(int x=0, TreeNode *left = nullptr, TreeNode *right = nullptr) : val(x), left(left), right(right) {}
 };
 
-TreeNode* CreateTree(std::vector<int> nodes);
+TreeNode* CreateTree(std::vector<int> nodes,int nullval);
 
  #endif
