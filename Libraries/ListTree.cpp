@@ -1,17 +1,15 @@
-#include <iostream>
-#include <sstream>
 #include "ListTree.h"
 
 void insert(ListTree** root, int item)
 {
     ListTree* temp = new ListTree(item);
     ListTree* ptr;
-    if (*root == NULL)
+    if (*root == nullptr)
         *root = temp;
     else
     {
         ptr = *root;
-        while (ptr->next != NULL)
+        while (ptr->next != nullptr)
             ptr = ptr->next;
         temp->prev = ptr;
         ptr->next = temp;
@@ -20,7 +18,7 @@ void insert(ListTree** root, int item)
 
 void display(ListTree* root)
 {
-  while (root != NULL)
+  while (root != nullptr)
   {
     std::cout << root->val << " ";
     root = root->next;
@@ -30,27 +28,27 @@ void display(ListTree* root)
 
 ListTree* flatten(ListTree* head)
 {
-    if(head == NULL)
+    if(head == nullptr)
     {
-        return NULL;
+        return nullptr;
     }
     ListTree *beg = head;
-    while(beg != NULL)
+    while(beg != nullptr)
     {
-        if(beg->child != NULL)
+        if(beg->child != nullptr)
         {
             ListTree* child = beg->child;
             ListTree* iterChild = child;
-            while(iterChild->next != NULL)
+            while(iterChild->next != nullptr)
             {
                 iterChild = iterChild->next;
             }
             iterChild->next = beg->next;
-            if(beg->next != NULL)
+            if(beg->next != nullptr)
                 beg->next->prev = iterChild;
             beg->next = child;
             child->prev = beg;
-            beg->child = NULL;
+            beg->child = nullptr;
         }
         beg = beg->next;
     }
@@ -101,13 +99,13 @@ void FlattenMain()
         {
           for(int i=1;i<input;i++)
           {
-            if(ptr->next!=NULL)
+            if(ptr->next!=nullptr)
               ptr = ptr->next;
             else
               break;
           }
         }
-        if(ptr->child !=NULL)
+        if(ptr->child !=nullptr)
           ptr = ptr->child;
       }
       ptr->child = ListHead->next;
@@ -120,7 +118,7 @@ void FlattenMain()
   if(started)
     TreeHead = flatten(TreeHead);
   else
-    TreeHead = NULL;
+    TreeHead = nullptr;
   std::cout << "the list after flattening is: \n";
   display(TreeHead);
   /* This Solution is 4ms*/

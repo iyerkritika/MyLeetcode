@@ -28,15 +28,15 @@ Please do not use the built-in HashMap library.
 
 */
 
-lass MyHashMap
+class MyHashMap
 {
     private:
-    vector<int> set;
+    std::vector<int> set;
     public:
     /** Initialize your data structure here. */
     MyHashMap()
     {
-        set = vector<int>(1000000,-1);
+        set = std::vector<int>(1000000,-1);
     }
 
     /** value will always be non-negative. */

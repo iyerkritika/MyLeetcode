@@ -1,6 +1,3 @@
 cmake_minimum_required(VERSION 3.5)
-add_subdirectory(Arrays101)
-add_subdirectory(Medium)
-add_subdirectory(Hard)
-add_subdirectory(Linked_List)
-add_subdirectory(BinaryTree)
+add_subdirectory(Libraries)
+add_subdirectory(Modules)

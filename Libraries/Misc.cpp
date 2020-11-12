@@ -1,30 +1,4 @@
-/*
-Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 2^31 - 1.
-
-Example 1:
-Input: 123
-Output: "One Hundred Twenty Three"
-
-
-Example 2:
-Input: 12345
-Output: "Twelve Thousand Three Hundred Forty Five"
-
-
-Example 3:
-Input: 1234567
-Output: "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
-
-
-Example 4:
-Input: 1234567891
-Output: "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One"
-
-*/
-
-#include <iostream>
-#include <string>
-#include <math.h>
+#include "Misc.h"
 
 std::string get_num(int num_h,int num_t,int num_ones)
 {
@@ -133,11 +107,72 @@ std::string numberToWords(int num)
     return words;
 }
 
-int main(int argc, char const *argv[])
+int compareVersion(std::string version1, std::string version2)
 {
-  int number;
-  std::cout << "Enter a number from 1 to 2^31-1" << '\n';
-  std::cin >> number;
-  std::cout << "The number in words is:" << '\n'<<numberToWords(number)<<"\n";
-  return 0;
+  std::size_t found1,found2;
+  if(version1==version2)
+      return 0;
+  found1=version1.find('.');
+  found2=version2.find('.');
+  while(found1!=std::string::npos||found2!=std::string::npos)
+   {
+      if(std::stoi(version1.substr(0,found1))>std::stoi(version2.substr(0,found2)))
+          return 1;
+      else if(std::stoi(version1.substr(0,found1))<std::stoi(version2.substr(0,found2)))
+          return -1;
+      else
+      {
+          version1 = found1 == std::string::npos? "0" :version1.substr(++found1);
+          version2 = found2 == std::string::npos? "0" :version2.substr(++found2);
+          found1=version1.find('.');
+          found2=version2.find('.');
+      }
+   }
+  if(std::stof(version1)==std::stof(version2))
+    return 0;
+  else  if(std::stof(version1)>std::stof(version2))
+      return 1;
+  else
+    return -1;
+}
+
+bool MiscMains(int ProgNumber)
+{
+   switch (ProgNumber)
+   {
+     case 1:
+     {
+       int number;
+       std::cout << "Enter a number from 1 to 2^31-1" << '\n';
+       std::cin >> number;
+       std::cout << "The number in words is:" << '\n'<<numberToWords(number)<<"\n";
+       break;
+     }
+     case 2:
+     {
+       std::string s1,s2;
+       int answer;
+       std::cout << "Enter first version number.\n" ;
+       std::cin>>s1;
+       std::cout << "Enter second version number.\n" ;
+       std::cin>>s2;
+       answer = compareVersion(s1,s2);
+       if(answer==0)
+       {
+         std::cout<<"The version numbers are the same. \n";
+       }
+       else if(answer == 1)
+       {
+         std::cout<<"Version 1 is bigger. \n";
+       }
+       else
+       {
+         std::cout<<"Version 2 is bigger. \n";
+       }
+       break;
+     }
+     default:
+      return false;
+   }
+   return true;
 }

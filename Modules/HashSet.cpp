@@ -31,7 +31,7 @@ Please do not use the built-in HashSet library.
 class MyHashSet
 {
     private:
-         vector<bool> set;
+      std::vector<bool> set;
     public:
     /** Initialize your data structure here. */
     MyHashSet()

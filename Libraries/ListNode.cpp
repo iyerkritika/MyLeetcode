@@ -1,6 +1,3 @@
-#include <iostream>
-#include <sstream>
-#include <bits/stdc++.h>
 #include "ListNode.h"
 
 void insert(ListNode** root, int item)
@@ -8,14 +5,14 @@ void insert(ListNode** root, int item)
     ListNode* temp = new ListNode;
     ListNode* ptr;
     temp->val = item;
-    temp->next = NULL;
+    temp->next = nullptr;
 
-    if (*root == NULL)
+    if (*root == nullptr)
         *root = temp;
     else
     {
         ptr = *root;
-        while (ptr->next != NULL)
+        while (ptr->next != nullptr)
             ptr = ptr->next;
         ptr->next = temp;
     }
@@ -23,7 +20,7 @@ void insert(ListNode** root, int item)
 
 void display(ListNode* root)
 {
-  while (root != NULL)
+  while (root != nullptr)
   {
     std::cout << root->val << " ";
     root = root->next;
@@ -31,7 +28,7 @@ void display(ListNode* root)
   std::cout << '\n';
 }
 
-ListNode* InputList(std::string inputMsg, int min = INT_MIN,int max = INT_MAX,int len = INT_MAX)
+ListNode* InputList(std::string inputMsg, int min,int max,int len)
 {
   ListNode *head = new ListNode();
   int input,length;
@@ -57,16 +54,16 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
   int carry=0;
   ListNode* ptr= new ListNode(0);
   ListNode* start=ptr;
-  while(l1!=NULL || l2!=NULL)
+  while(l1!=nullptr || l2!=nullptr)
   {
-      if(l1==NULL)
+      if(l1==nullptr)
       {
           ptr->next = new ListNode((l2->val+carry)%10);
           carry=(l2->val+carry)/10;
           l2=l2->next;
           ptr=ptr->next;
       }
-      else if(l2==NULL)
+      else if(l2==nullptr)
       {
           ptr->next = new ListNode((l1->val+carry)%10);
           carry=(l1->val+carry)/10;
@@ -92,10 +89,10 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
 
 ListNode* detectCycle(ListNode *head)
 {
-    if(head == NULL || head->next == NULL)
-    return NULL;
+    if(head == nullptr || head->next == nullptr)
+    return nullptr;
     ListNode *slow = head,*fast=head;
-    while(fast !=NULL && fast->next !=NULL)
+    while(fast !=nullptr && fast->next !=nullptr)
     {
         slow = slow->next;
         fast = fast->next->next;
@@ -105,7 +102,7 @@ ListNode* detectCycle(ListNode *head)
         }
     }
     if(slow != fast)
-        return NULL;
+        return nullptr;
     fast = head;
     while(slow!=fast)
     {
@@ -117,10 +114,10 @@ ListNode* detectCycle(ListNode *head)
 
 bool hasCycle(ListNode *head)
 {
-    if(head == NULL || head->next == NULL)
+    if(head == nullptr || head->next == nullptr)
         return false;
     ListNode *slow = head,*fast=head;
-    while(fast !=NULL && fast->next !=NULL)
+    while(fast !=nullptr && fast->next !=nullptr)
     {
         slow = slow->next;
         fast = fast->next->next;
@@ -135,7 +132,7 @@ bool hasCycle(ListNode *head)
 int get_length(ListNode* a)
 {
     int len=0;
-    while (a!=NULL)
+    while (a!=nullptr)
     {
       a = a->next;
       len++;
@@ -145,8 +142,8 @@ int get_length(ListNode* a)
 
 ListNode* getIntersectionNode(ListNode *headA, ListNode *headB)
 {
-    if(headA==NULL || headB==NULL)
-        return NULL;
+    if(headA==nullptr || headB==nullptr)
+        return nullptr;
     int lenA=get_length(headA);
     int lenB=get_length(headB);
     if(lenA>lenB)
@@ -164,8 +161,8 @@ ListNode* getIntersectionNode(ListNode *headA, ListNode *headB)
      {
         headA=headA->next;
         headB=headB->next;
-         if(headA==NULL && headB== NULL)
-             return NULL;
+         if(headA==nullptr && headB== nullptr)
+             return nullptr;
      }
     return headA;
 }
@@ -174,7 +171,7 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
 {
     ListNode *ListPtr = new ListNode(0);
     ListNode *Head = ListPtr;
-    while(l1 != NULL && l2 !=NULL)
+    while(l1 != nullptr && l2 !=nullptr)
     {
         if(l1->val<=l2->val)
         {
@@ -189,13 +186,13 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
             l2 = l2->next;
         }
     }
-    while(l1!=NULL)
+    while(l1!=nullptr)
     {
         ListPtr->next = new ListNode(l1->val);
         ListPtr = ListPtr->next;
         l1 = l1->next;
     }
-    while(l2!=NULL)
+    while(l2!=nullptr)
     {
         ListPtr->next = new ListNode(l2->val);
         ListPtr = ListPtr->next;
@@ -206,10 +203,10 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
 
 ListNode* removeNthFromEnd(ListNode* head, int n)
 {
-    if(head == NULL || head->next == NULL)
-        return NULL;
+    if(head == nullptr || head->next == nullptr)
+        return nullptr;
     ListNode *beg = head, *end = head;
-    while(end!=NULL)
+    while(end!=nullptr)
     {
         if(n>0)
         {
@@ -218,7 +215,7 @@ ListNode* removeNthFromEnd(ListNode* head, int n)
         }
         else
         {
-            if(end->next == NULL)
+            if(end->next == nullptr)
             {
                 beg->next = beg->next->next;
                 break;
@@ -230,79 +227,138 @@ ListNode* removeNthFromEnd(ListNode* head, int n)
             }
         }
     }
-    if(end == NULL && beg == head)
+    if(end == nullptr && beg == head)
     {
         return head->next;
     }
     return head;
 }
 
-void MainAddTwoNumbers()
+ListNode* insertionSortList(ListNode* head)
 {
-  ListNode *number1 = InputList("Enter a vector of numbers between 0 and 9 that together form an integer in reverse order without leading Zeroes. for Ex : 807 will be entered as 7 0 8. if there are invalid numbers they will be discarded \n",0,9,100);
-  ListNode *number2 = InputList("Enter another vector of numbers between 0 and 9 that together form an integer in reverse order without leading Zeroes. for Ex : 807 will be entered as 7 0 8. if there are invalid numbers they will be discarded \n",0,9,100);
-  std::cout << "after Adding the value is " << '\n';
-  display(addTwoNumbers(number1,number2));
-  /* this solution was 20ms */
-}
-
-void getCyclicList(bool returnBool)
-{
-  int input,n1LoopNode,len=0;
-  ListNode *number1 = InputList("Enter a vector of numbers. if there are invalid numbers they will be discarded. \n",-10^5,10^5,10^4);
-  ListNode *number1loop= number1;
-  std::cout << "Enter a Node that the last node points to to loop ( 0 indexed) enter -1 for no loops." << '\n';
-  std::cin >> n1LoopNode;
-  if(n1LoopNode !=-1)
-  {
-    for ( int i=0;i<n1LoopNode;i++)
+    ListNode *newHead = head;
+    ListNode *ptr = newHead;
+    while(head!=nullptr)
     {
-      number1loop = number1loop->next;
+        if(ptr->val>head->val)
+        {
+            if(head->val<newHead->val)
+            {
+                ptr->next = head->next;
+                head->next = newHead;
+                newHead = head;
+                head = ptr->next;
+            }
+            else
+            {
+               ListNode *tempPtr = newHead;
+                while(tempPtr->next->val<head->val)
+                {
+                    tempPtr = tempPtr->next;
+                }
+                ptr->next = head->next;
+                head->next = tempPtr->next;
+                tempPtr->next = head;
+                head = ptr->next;
+            }
+        }
+        else
+        {
+            ptr = head;
+            head= head->next;
+        }
     }
-    ListNode *number1end = number1;
-    while(number1end -> !=NULL)
-      number1end = number1end->next;
-    number1end->next = number1loop;
-  }
-  if(returnBool)
-  {
-    bool answer = hasCycle(number1);
-    std::cout << "the list has a loop : " << std::to_string(answer)<< '\n';
-    /* this solution was 8ms */
-  }
-  else
-  {
-    ListNode *answer = detectCycle(number1);
-    std::cout << "the tail connects at value : " << answer->val << '\n';
-    /* this solution was 8ms */
-  }
+    return newHead;
 }
 
-void intersectionNodesMain()
+bool ListNodeMains(int ProgNumber)
 {
-  ListNode *number1 = InputList("Enter a vector of numbers. If there are invalid numbers they will be discarded. \n",1,10^9);
-  ListNode *number2 = InputList("Enter another vector of numbers. If there are invalid numbers they will be discarded. \n",1,10^9);
-  ListNode *answer = getIntersectionNode(number1, number2);
-  std::string result = answer == NULL?"NULL": std::to_string(answer->val);
-  std::cout << "the value of the intesecting mode is "<< result << '\n';
-  /* this solution was 40ms */
-}
-
-void mergeSortMain()
-{
-  ListNode *number1 = InputList("Enter a list of numbers in non decreasing order between -100 and 100. If there are invalid numbers they will be discarded. \n",-100,100,50);
-  ListNode *number2 = InputList("Enter another list of numbers in non decreasing order between -100 and 100. If there are invalid numbers they will be discarded. \n",-100,100,50);
-  std::cout << "after Merging both the value is " << '\n';
-  display(mergeTwoLists(number1->next,number2->next));
-  /* this solution was 0ms */
-}
-
-void removeNthMain()
-{
-  int input;
-  ListNode *number1 = InputList("Enter a list of numbers between 0 and 100. If there are invalid numbers they will be discarded. \n",0,100,30);
-  std::cout << "Enter the index from the end you want to delete between 1 and the total number of elements" << '\n';
-  std::cin >> input;
-  std::cout << "the list after deleting is: \n";
-  display(removeNthFromEnd(number1,input));
+    ListNode *number1 = new ListNode();
+    switch (ProgNumber)
+    {
+      case 1:
+        {
+          number1 = InputList("Enter a vector of numbers between 0 and 9 that together form an integer in reverse order without leading Zeroes. for Ex : 807 will be entered as 7 0 8. if there are invalid numbers they will be discarded \n",0,9,100);
+          ListNode *number2 = InputList("Enter another vector of numbers between 0 and 9 that together form an integer in reverse order without leading Zeroes. for Ex : 807 will be entered as 7 0 8. if there are invalid numbers they will be discarded \n",0,9,100);
+          std::cout << "after Adding the value is " << '\n';
+          number1 = addTwoNumbers(number1,number2);
+          break;
+          /* this solution was 20ms */
+        }
+      case 2:
+      case 3:
+        {
+          number1 = InputList("Enter a vector of numbers. if there are invalid numbers they will be discarded. \n",-10^5,10^5,10^4);
+          int input,n1LoopNode;
+          ListNode *number1loop= number1;
+          std::cout << "Enter a Node that the last node points to to loop ( 0 indexed) enter -1 for no loops." << '\n';
+          std::cin >> n1LoopNode;
+          if(n1LoopNode !=-1)
+          {
+            for ( int i=0;i<n1LoopNode;i++)
+            {
+              number1loop = number1loop->next;
+            }
+            ListNode *number1end = number1;
+            while(number1end->next !=nullptr)
+              number1end = number1end->next;
+            number1end->next = number1loop;
+          }
+          if(ProgNumber == 2)
+          {
+            bool answer = hasCycle(number1);
+            std::cout << "the list has a loop : " << std::to_string(answer)<< '\n';
+            /* this solution was 8ms */
+          }
+          else
+          {
+            ListNode *answer = detectCycle(number1);
+            std::cout << "the tail connects at value : " << answer->val << '\n';
+            /* this solution was 8ms */
+          }
+          return true;
+        }
+      case 4:
+        {
+          number1 = InputList("Enter a vector of numbers. If there are invalid numbers they will be discarded. \n",1,10^9);
+          ListNode *number2 = InputList("Enter another vector of numbers. If there are invalid numbers they will be discarded. \n",1,10^9);
+          ListNode *answer = getIntersectionNode(number1, number2);
+          std::string result = answer == nullptr?"nullptr": std::to_string(answer->val);
+          std::cout << "the value of the intesecting mode is "<< result << '\n';
+          return true;
+          /* this solution was 40ms */
+        }
+      case 5:
+      {
+        number1 = InputList("Enter a list of numbers in non decreasing order between -100 and 100. If there are invalid numbers they will be discarded. \n",-100,100,50);
+        ListNode *number2 = InputList("Enter another list of numbers in non decreasing order between -100 and 100. If there are invalid numbers they will be discarded. \n",-100,100,50);
+        std::cout << "after Merging both the value is " << '\n';
+        mergeTwoLists(number1,number2);
+        break;
+        /* this solution was 0ms */
+      }
+      case 6:
+        {
+          number1 = InputList("Enter a list of numbers between 0 and 100. If there are invalid numbers they will be discarded. \n",0,100,30);
+          int input;
+          std::cout << "Enter the index from the end you want to delete between 1 and the total number of elements" << '\n';
+          std::cin >> input;
+          std::cout << "the list after deleting is: \n";
+          removeNthFromEnd(number1,input);
+          break;
+          /* this solution was 4ms */
+        }
+      case 7:
+      {
+        number1 = InputList("Enter a vector of numbers. if there are invalid numbers they will be discarded. \n",-10^5,10^5);
+        insertionSortList(number1);
+        std::cout << "the loop has a loop : \n";
+        /* this solution was 12ms */
+        break;
+      }
+      default:
+        return false;
+    }
+    display(number1);
+    return true;
 }
