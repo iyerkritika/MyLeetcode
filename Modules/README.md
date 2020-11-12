@@ -1,9 +1,9 @@
 <ul>
   <details>
-  <summary> Linked List programs</summary>
+  <summary> Linked List programs </summary>
     <ul>
       <details>
-      <summary>Return the addition of 2 numbers</summary>
+      <summary> Return the addition of 2 numbers </summary>
         <p>
           You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
           <br>You may assume the two numbers do not contain any leading zero, except the number 0 itself.
@@ -28,7 +28,7 @@
         </p>
       </details>
       <details>
-      <summary>Find out if a list is cyclic and return true or false</summary>
+      <summary> Find out if a list is cyclic and return true or false </summary>
         <p>
           Given head, the head of a linked list, determine if the linked list has a cycle in it.
           There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
@@ -59,7 +59,7 @@
         </p>
       </details>
       <details>
-      <summary> Find out if a list is cyclic and return the node</summary>
+      <summary> Find out if a list is cyclic and return the node </summary>
         <p>
           Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
           There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
@@ -90,7 +90,7 @@
         </p>
       </details>
       <details>
-      <summary> Find an intersection of 2 lists</summary>
+      <summary> Find an intersection of 2 lists </summary>
         <p>
           Write a program to find the node at which the intersection of two singly linked lists begins.
           For example, the following two linked lists:
@@ -121,7 +121,7 @@
         </p>
       </details>
       <details>
-      <summary> Merge Sort List</summary>
+      <summary> Merge Sort List </summary>
         <p>
           Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
           <br>
@@ -221,7 +221,7 @@
         </p>
       </details>
       <details>
-      <summary> Insertion Sort</summary>
+      <summary> Insertion Sort </summary>
         <p>
           Sort a linked list using insertion sort.
           <br>A graphical example of insertion sort. The partial sorted list (black) initially contains only the first element in the list.
@@ -248,7 +248,7 @@
   <summary> Vector Programs </summary>
     <ul>
       <details>
-      <summary>Find Disappeared numbers</summary>
+      <summary> Find Disappeared numbers </summary>
         <p>
           Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
           <br>Find all the elements of [1, n] inclusive that do not appear in this array.
@@ -261,29 +261,29 @@
         </p>
       </details>
       <details>
-      <summary>Duplicating 0s</summary>
+      <summary> Duplicating 0s </summary>
         <p>
           Given a fixed length array arr of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.
           Note that elements beyond the length of the original array are not written.
           Do the above modifications to the input array in place, do not return anything from your function.
           <br>
-          <br><b>Example 1: <b>
+          <br><b>Example 1: </b>
           <br>Input: [1,0,2,3,0,4,5,0]
           <br>Output: null
           <br>Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
           <br>
-          <br><b>Example 2: <b>
+          <br><b>Example 2: </b>
           <br>Input: [1,2,3]
           <br>Output: null
           <br>Explanation: After calling your function, the input array is modified to: [1,2,3]
           <br>
-          <br><b>Contraints:<b>
+          <br><b>Contraints:</b>
           <br>1 <= arr.length <= 10000
           <br>0 <= arr[i] <= 9
         </p>
       </details>
       <details>
-      <summary>Even Digit Numbers in an Array</summary>
+      <summary> Even Digit Numbers in an Array </summary>
         <p>
           Given an array nums of integers, return how many of them contain an even number of digits.
           <br>
@@ -310,7 +310,7 @@
         </p>
       </details>
       <details>
-      <summary>Height Checker</summary>
+      <summary> Height Checker </summary>
         <p>
           Students are asked to stand in non-decreasing order of heights for an annual photo.
           <br>Return the minimum number of students that must move in order for all students to be standing in non-decreasing order of height.
@@ -340,7 +340,7 @@
         </p>
       </details>
       <details>
-      <summary>Maximum consecutive 1s</summary>
+      <summary> Maximum consecutive 1s </summary>
         <p>
           Given a binary array, find the maximum number of consecutive 1s in this array.
           <br>
@@ -356,7 +356,7 @@
         </p>
       </details>
       <details>
-      <summary>Merge sort</summary>
+      <summary> Merge sort </summary>
         <p>
           Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
           <br>
@@ -376,7 +376,7 @@
         </p>
       </details>
       <details>
-      <summary>Mountain Array</summary>
+      <summary> Mountain Array </summary>
         <p>
           Given an array A of integers, return true if and only if it is a valid mountain array.
           <br>Recall that A is a mountain array if and only if:
@@ -403,7 +403,7 @@
         </p>
       </details>
       <details>
-      <summary>Move Zeroes </summary>
+      <summary> Move Zeroes </summary>
         <p>
           Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
           <br>
@@ -417,7 +417,7 @@
         </p>
       </details>
       <details>
-      <summary>Remove Duplicates</summary>
+      <summary> Remove Duplicates </summary>
         <p>
           Given a sorted array nums, remove the duplicates in-place such that each element appears only once and returns the new length.
           <br>
@@ -439,7 +439,7 @@
         </p>
       </details>
       <details>
-      <summary>Remove Elements</summary>
+      <summary> Remove Elements </summary>
         <p>
           Given an array nums and a value val, remove all instances of that value in-place and return the new length.
           <br>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
@@ -458,7 +458,7 @@
         </p>
       </details>
       <details>
-      <summary>Replace Elements</summary>
+      <summary> Replace Elements </summary>
         <p>
           Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1.
           <br>
@@ -474,7 +474,7 @@
         </p>
       </details>
       <details>
-      <summary> Sort Array by Parity</summary>
+      <summary> Sort Array by Parity </summary>
         <p>
           Given an array A of non-negative integers, return an array consisting of all the even elements of A, followed by all the odd elements of A.
           <br>You may return any answer array that satisfies this condition.
@@ -490,7 +490,7 @@
         </p>
       </details>
       <details>
-      <summary>Sorted Squares</summary>
+      <summary> Sorted Squares </summary>
         <p>
             Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.
             <br>
@@ -509,7 +509,7 @@
         </p>
       </details>
       <details>
-      <summary> Third Biggest Number</summary>
+      <summary> Third Biggest Number </summary>
         <p>
             Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
             <br>
@@ -531,7 +531,7 @@
         </p>
       </details>
       <details>
-      <summary> Product of all elements but self</summary>
+      <summary> Product of all elements but self </summary>
         <p>
           Given an array nums of n integers where n > 1,  return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
           <br>
@@ -551,7 +551,7 @@
   <summary> Binary Tree Programs </summary>
     <ul>
       <details>
-      <summary>Pre Order traversal</summary>
+      <summary> Pre Order traversal </summary>
         <p>
           Given the root of a binary tree, return the preorder traversal of its nodes' values.
           <br>
@@ -584,7 +584,7 @@
         </p>
       </details>
       <details>
-      <summary>In order traversal</summary>
+      <summary> In order traversal </summary>
         <p>
           Given the root of a binary tree, return the inorder traversal of its nodes' values.
           <br>
@@ -619,10 +619,10 @@
     </ul>
   </details>
   <details>
-  <summary> Hash Table Programs</summary>
+  <summary> Hash Table Programs </summary>
     <ul>
       <details>
-      <summary>Contains a duplicate</summary>
+      <summary> Contains a duplicate </summary>
         <p>
           Given an array of integers, find if the array contains any duplicates.
           Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
@@ -641,7 +641,7 @@
         </p>
       </details>
       <details>
-      <summary>First unique character</summary>
+      <summary> First unique character </summary>
         <p>
           Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
           <br>
@@ -654,7 +654,7 @@
         </p>
       </details>
       <details>
-      <summary>Happy Numbers</summary>
+      <summary> Happy Numbers </summary>
         <p>
           Write an algorithm to determine if a number n is "happy".
           <br>
@@ -674,7 +674,7 @@
         </p>
       </details>
       <details>
-      <summary>Intersection of two vectors</summary>
+      <summary> Intersection of two vectors </summary>
         <p>
           Given two arrays, write a function to compute their intersection.
           <br>
@@ -692,7 +692,7 @@
         </p>
       </details>
       <details>
-      <summary>Find the Single Number</summary>
+      <summary> Find the Single Number </summary>
         <p>
           <br>Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
           <br>
@@ -717,7 +717,7 @@
         </p>
       </details>
       <details>
-      <summary>Two numbers add up to the target</summary>
+      <summary> Two numbers add up to the target </summary>
         <p>
           Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
           <br>
@@ -773,7 +773,7 @@
         </p>
       </details>
       <details>
-      <summary>Check Version Numbers - MEDIUM</summary>
+      <summary> Check Version Numbers - MEDIUM</summary>
         <p>
           Given two version numbers, version1 and version2, compare them.
           <br>Version numbers consist of one or more revisions joined by a dot '.'. Each revision consists of digits and may contain leading zeros. Every revision contains at least one character. Revisions are 0-indexed from left to right, with the leftmost revision being revision 0, the next revision being revision 1, and so on. For example 2.5.33 and 0.1 are valid version numbers.
