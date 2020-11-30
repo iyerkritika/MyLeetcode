@@ -31,21 +31,25 @@ void vectorMenu()
   std::cout<<"11. Replace elements\n";
   std::cout<<"12. Sort Array by Parity\n";
   std::cout<<"13. Sort sqaures array\n";
-  std::cout<<"14. Third Biggest.h Number\n";
-  std::cout<<"15. Third Largest Number\n";
+  std::cout<<"14. Third Biggest Number\n";
+  std::cout<<"15. Product except self\n";
+  std::cout<<"16. Minimum cost to stack all coins onto one column\n";
+  std::cout<<"17. Find the Smallest Divisor Given a Threshold\n";
 }
 
 void LinkedListMenu()
 {
   std::cout<<"Please select from the menu\n";
-  std::cout<<"1. Add 2 numbers\n";
-  std::cout<<"2. Find out if a list is cyclic and return bool\n";
-  std::cout<<"3. Find out if a list is cyclic and return node\n";
-  std::cout<<"4. Find an intersection of 2 lists\n";
-  std::cout<<"5. Merge sort\n";
-  std::cout<<"6. Remove nth Element\n";
-  std::cout<<"7. Insertion sort\n";
-  std::cout<<"8. Flatten a multi level Tree\n";
+  std::cout<<"1. Add 2 numbers given in reverse\n";
+  std::cout<<"2. Add 2 numbers given as written\n";
+  std::cout<<"3. Find out if a list is cyclic and return bool\n";
+  std::cout<<"4. Find out if a list is cyclic and return node\n";
+  std::cout<<"5. Find an intersection of 2 lists\n";
+  std::cout<<"6. Merge sort\n";
+  std::cout<<"7. Remove nth Element\n";
+  std::cout<<"8. Insertion sort\n";
+  std::cout<<"9. Convert binary to integer\n";
+  std::cout<<"10. Flatten a multi level Tree\n";
 }
 
 void BinaryTreeMenu()
@@ -71,197 +75,92 @@ void MiscMenu()
   std::cout<<"Please select from the menu\n";
   std::cout<<"1. Convert int to wordds\n";
   std::cout<<"2. Check version Number\n";
+  std::cout<<"3. consecutive letters in a string\n";
+}
+
+template <class T>
+T getOption()
+{
+  T input;
+  std::string line;
+  std::getline(std::cin, line);
+  std::istringstream stream(line);
+  if(stream >> input)
+    return input;
+}
+
+void submodule( void (*menu)(),bool (*mains)(int),int max)
+{
+  (*menu)();
+  int internalOption = 1;
+  std::string yesNo;
+  while(internalOption)
+  {
+    internalOption = getOption<int>();
+    if(internalOption == max)
+    {
+      (*menu)();
+      internalOption = getOption<int>();
+    }
+
+    if((*mains)(internalOption))
+    {
+      std::cout << "Would you like to continue in this sub module? Y/N \n";
+      yesNo = getOption<std::string>();
+      if(yesNo == "Y" || yesNo == "y")
+      {
+        std::cout << "Please pick an option. pick " << max <<" for the menu again" << '\n';
+        continue;
+      }
+      else
+      {
+        break;
+      }
+    }
+    else
+    {
+      return;
+    }
+  }
 }
 
 int main(int argc, char const *argv[])
 {
   int option = 1;
-  int internalOption;
-  std::string yesNo;
   while(option)
   {
     Megamenu();
-    std::cin>>option;
+    option=getOption<int>();
     switch (option)
     {
       case 1:
       {
-        vectorMenu();
-        internalOption = 1;
-        while(internalOption)
-        {
-          std::cin>> internalOption;
-          if(internalOption == 16)
-          {
-            vectorMenu();
-            std::cin>> internalOption;
-          }
-          if(VectorMains(internalOption))
-          {
-            std::cout << "Would you like to continue in this sub module? Y/N \n";
-            std::cin>>yesNo;
-            if(yesNo == "Y" || yesNo == "y")
-            {
-              std::cout << "Please pick an option. pick 16 for the menu again" << '\n';
-              continue;
-            }
-            else
-            {
-              break;
-            }
-          }
-          else
-          {
-            return 0;
-          }
-        }
+        submodule(vectorMenu,VectorMains,18);
         break;
       }
       case 2:
       {
-        LinkedListMenu();
-        internalOption = 1;
-        while(internalOption)
-        {
-          std::cin>> internalOption;
-          if(internalOption == 9)
-          {
-            LinkedListMenu();
-            std::cin>> internalOption;
-          }
-          bool passed = false;
-          if(internalOption == 8)
-          {
-            FlattenMain();
-            passed = true;
-          }
-          else
-          {
-            passed = ListNodeMains(internalOption);
-          }
-          if(passed)
-          {
-            std::cout << "Would you like to continue in this sub module? Y/N \n";
-            std::cin>>yesNo;
-            if(yesNo == "Y" || yesNo == "y")
-            {
-              std::cout << "Please pick an option. pick 9 for the menu again" << '\n';
-              continue;
-            }
-            else
-            {
-              break;
-            }
-          }
-          else
-          {
-            return 0;
-          }
-        }
+        submodule(LinkedListMenu,ListNodeMains,11);
         break;
       }
       case 3:
       {
-        BinaryTreeMenu();
-        internalOption = 1;
-        while(internalOption)
-        {
-          std::cin>> internalOption;
-          if(internalOption == 3)
-          {
-            BinaryTreeMenu();
-            std::cin>> internalOption;
-          }
-          if(BinaryTreeMains(internalOption))
-          {
-            std::cout << "Would you like to continue in this sub module? Y/N \n";
-            std::cin>>yesNo;
-            if(yesNo == "Y" || yesNo == "y")
-            {
-              std::cout << "Please pick an option. pick 3 for the menu again" << '\n';
-              continue;
-            }
-            else
-            {
-              break;
-            }
-          }
-          else
-          {
-            return 0;
-          }
-        }
+        submodule(BinaryTreeMenu,BinaryTreeMains,3);
         break;
       }
       case 4:
       {
-        HashTablesMenu();
-        internalOption = 1;
-        while(internalOption)
-        {
-          std::cin>> internalOption;
-          if(internalOption == 7)
-          {
-            HashTablesMenu();
-            std::cin>> internalOption;
-          }
-          if(HashTablesMains(internalOption))
-          {
-            std::cout << "Would you like to continue in this sub module? Y/N \n";
-            std::cin>>yesNo;
-            if(yesNo == "Y" || yesNo == "y")
-            {
-              std::cout << "Please pick an option. pick 7 for the menu again" << '\n';
-              continue;
-            }
-            else
-            {
-              break;
-            }
-          }
-          else
-          {
-            return 0;
-          }
-        }
+        submodule(HashTablesMenu,HashTablesMains,7);
         break;
       }
       case 5:
       {
-        MiscMenu();
-        internalOption = 1;
-        while(internalOption)
-        {
-          std::cin>> internalOption;
-          if(internalOption == 3)
-          {
-            MiscMenu();
-            std::cin>> internalOption;
-          }
-          if(MiscMains(internalOption))
-          {
-            std::cout << "Would you like to continue in this sub module? Y/N \n";
-            std::cin>>yesNo;
-            if(yesNo == "Y" || yesNo == "y")
-            {
-              std::cout << "Please pick an option. pick 3 for the menu again" << '\n';
-              continue;
-            }
-            else
-            {
-              break;
-            }
-          }
-          else
-          {
-            return 0;
-          }
-        }
+        submodule(MiscMenu,MiscMains,4);
         break;
       }
       default:
         return 0;
     }
-  return 0;
   }
+  return 0;
 }

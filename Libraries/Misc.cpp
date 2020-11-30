@@ -136,6 +136,34 @@ int compareVersion(std::string version1, std::string version2)
     return -1;
 }
 
+int maxPower(std::string s)
+{
+    int result =1;
+    int current = 1;
+    char curChar = s[0];
+    for (int i=1; i<s.length();i++)
+    {
+        if(s[i]==curChar)
+        {
+            current ++;
+        }
+        else
+        {
+            if(current>result)
+            {
+                result = current;
+            }
+            current =1;
+            curChar = s[i];
+        }
+    }
+    if(current>=1 && current>result)
+    {
+        return current;
+    }
+    return result;
+}
+
 bool MiscMains(int ProgNumber)
 {
    switch (ProgNumber)
@@ -169,6 +197,14 @@ bool MiscMains(int ProgNumber)
        {
          std::cout<<"Version 2 is bigger. \n";
        }
+       break;
+     }
+     case 3:
+     {
+       std::string s;
+       std::cout << "Enter a string of less than 500 characters." << '\n';
+       std::cin >> s;
+       std::cout << "the maximum length of the same letter in the string is "<<maxPower(s.length()>500?s.substr(0,499):s) << '\n';
        break;
      }
      default:

@@ -5,6 +5,9 @@
 #include <sstream>
 #include <string>
 #include <bits/stdc++.h>
+#include <vector>
+#include <math.h>
+#include "ListTree.h"
 
 struct ListNode
 {
@@ -16,13 +19,17 @@ struct ListNode
 
 void insert(ListNode** root, int item);
 void display(ListNode* root);
+void getIntIP(int &inp);
 ListNode* InputList(std::string inputMsg, int min = INT_MIN,int max = INT_MAX,int len = INT_MAX);
-ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
+ListNode* addTwoNumbersRev(ListNode* l1, ListNode* l2);
+ListNode* addTwoNumbersFor(ListNode* l1, ListNode* l2);
 ListNode *detectCycle(ListNode *head);
 bool hasCycle(ListNode *head);
 int get_length(ListNode* a);
 ListNode* getIntersectionNode(ListNode *headA, ListNode *headB);
 ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 ListNode* removeNthFromEnd(ListNode* head, int n);
+ListNode* insertionSortList(ListNode* head);
+int getDecimalValue(ListNode* head);
 bool ListNodeMains(int ProgNumber);
 #endif

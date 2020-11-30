@@ -19,6 +19,17 @@ std::vector<int> InputVector(std::string inputMsg, int min,int max,int len)
   return v;
 }
 
+void getIntIP(int &inp,int min,int max)
+{
+  int input;
+  std::string line;
+  std::getline(std::cin, line);
+  std::istringstream stream(line);
+  if(stream >> input)
+    if(input>=min && input<=max)
+      inp = input;
+}
+
 void displayVector(std::vector<int> result,int len)
 {
   if(len == -1)
@@ -362,6 +373,45 @@ std::vector<int> productExceptSelf(std::vector<int>& nums)
    return ans;
 }
 
+int minCostToMoveChips(std::vector<int>& position)
+{
+    int even=0 , odd=0;
+    for(int i=0;i<position.size();i++)
+    {
+        if(position[i]%2 ==0)
+            even ++;
+        else
+            odd++;
+    }
+    return std::min(even,odd);
+}
+
+int smallestDivisor(std::vector<int>& nums, int threshold)
+{
+    int sum,hi=nums[nums.size()-1],lo = 1,mid;
+    while(lo<=hi)
+    {
+        sum=0;
+        mid = (lo+hi)/2;
+        for(int j=0;j<=(nums.size()-1)/2;j++)
+        {
+            sum+=(int)ceil(nums[j]*1.0/mid);
+            if(j<nums.size()-1-j)
+            {
+                sum+=(int)ceil(nums[nums.size()-1-j]*1.0/mid);
+            }
+        }
+        if(sum<=threshold)
+        {
+            hi=mid-1;
+        }
+        else
+        {
+            lo = mid+1;
+        }
+    }
+    return lo;
+}
 
 bool VectorMains(int ProgNumber)
 {
@@ -370,130 +420,148 @@ bool VectorMains(int ProgNumber)
   switch(ProgNumber)
   {
     case 1:
-      {
-        numbers = InputVector("Enter a vector of size n with numbers between 1 and n \n ",1);
-        numbers = findDisappearedNumbers(numbers);
-        std::cout << "the Disappeared Numbers are" << '\n';
-        /* this solution was 88ms */
-        break;
-      }
+    {
+      numbers = InputVector("Enter a vector of size n with numbers between 1 and n \n ",1);
+      numbers = findDisappearedNumbers(numbers);
+      std::cout << "The Disappeared Numbers are" << '\n';
+      /* this solution was 88ms */
+      break;
+    }
     case 2:
-      {
-        numbers = InputVector("Enter a vector of numbers between 0 and 9 if there are invalid numbers they will be discarded \n ",0,9,10000);
-        std::cout << "the array after duplicating Zeroes and keeping the same size is " << '\n';
-        duplicateZeros(numbers);
-        /* this solution was 8ms */
-        break;
-      }
+    {
+      numbers = InputVector("Enter a vector of numbers of max length 10000 with numbers between 0 and 9. If there are invalid numbers they, will be discarded \n ",0,9,10000);
+      std::cout << "The array after duplicating Zeroes and keeping the same size is " << '\n';
+      duplicateZeros(numbers);
+      /* this solution was 8ms */
+      break;
+    }
     case 3:
-      {
-        numbers = InputVector("Enter a vector of numbers between 1 and 10^5 if there are invalid numbers they will be discarded \n",1,100000,500);
-        std::cout << "the number of numbers with even number of digits are " << findNumbers(numbers)<< '\n';
-        /* this solution was 8ms */
-        return true;
-      }
+    {
+      numbers = InputVector("Enter a vector of numbers of max length 500 with numbers between 1 and 10^5. If there are invalid numbers they, will be discarded \n",1,100000,500);
+      std::cout << "The number of numbers with even number of digits are " << findNumbers(numbers)<< '\n';
+      /* this solution was 8ms */
+      return true;
+    }
     case 4:
-      {
-        numbers = InputVector("Enter a vector of numbers between 1 and 10^5 if there are invalid numbers they will be discarded \n",1,100,100);
-        std::cout << "the minimum number of students to be moved are " << heightChecker(numbers)<< '\n';
-        /* this solution was 4ms */
-        return true;
-      }
+    {
+      numbers = InputVector("Enter a vector of numbers of max length 100 with numbers between 1 and 100. If there are invalid numbers they, will be discarded \n",1,100,100);
+      std::cout << "The minimum number of students to be moved are " << heightChecker(numbers)<< '\n';
+      /* this solution was 4ms */
+      return true;
+    }
     case 5:
-      {
-        numbers = InputVector("Enter a vector made of only ones and zeroes. if there are invalid numbers they will be discarded \n",0,1,10000);
-        std::cout << "the maximum number of 1s in a row is " << findMaxConsecutiveOnes(numbers)<< '\n';
-        /* this solution was 72ms */
-        return true;
-      }
+    {
+      numbers = InputVector("Enter a vector of max length 10000 with only ones and zeroes. If there are invalid numbers they, will be discarded \n",0,1,10000);
+      std::cout << "The maximum number of 1s in a row is " << findMaxConsecutiveOnes(numbers)<< '\n';
+      /* this solution was 72ms */
+      return true;
+    }
     case 6:
-      {
-        int m,n;
-        numbers= InputVector("Enter a vector of sorted numbers between -10^9 and 10^9 if there are invalid numbers they will be discarded \n",-10^9,10^9,10000);
-        std::vector<int> numbers2 = InputVector("Enter another vector of sorted numbers between -10^9 and 10^9 if there are invalid numbers they will be discarded \n",-10^9,10^9,10000);
-        m = numbers.size();
-        n = numbers2.size();
-        numbers.resize(m+n);
-        std::cout << "the array after merge sort is" << '\n';
-        merge(numbers,m,numbers2,n);
-        /* this solution was 4ms */
-        break;
-      }
+    {
+      int m,n;
+      numbers= InputVector("Enter a sorted vector of max length 10000 with numbers between -10^9 and 10^9. If there are invalid numbers they, will be discarded \n",-1*pow(10,9),pow(10,9),10000);
+      std::vector<int> numbers2 = InputVector("Enter another sorted vector of max length 10000 of numbers between -10^9 and 10^9. If there are invalid numbers they, will be discarded \n",-1*pow(10,9),pow(10,9),10000);
+      m = numbers.size();
+      n = numbers2.size();
+      numbers.resize(m+n);
+      std::cout << "The array after merge sort is" << '\n';
+      merge(numbers,m,numbers2,n);
+      /* this solution was 4ms */
+      break;
+    }
     case 7:
-      {
-        numbers = InputVector("Enter a vector of numbers between 0 and 10000 if there are invalid numbers they will be discarded \n",0,10000,10000);
-        std::string descision = validMountainArray(numbers)?"is ": "isn't ";
-        std::cout << "the array " << descision << "a mountain array \n";
-        /* this solution was 56ms */
-        return true;
-      }
+    {
+      numbers = InputVector("Enter a vector of max length 10000 with numbers between 0 and 10000. If there are invalid numbers they, will be discarded \n",0,10000,10000);
+      std::string descision = validMountainArray(numbers)?"is ": "isn't ";
+      std::cout << "The array " << descision << "a mountain array \n";
+      /* this solution was 56ms */
+      return true;
+    }
     case 8:
-      {
-        numbers = InputVector("Enter a vector of numbers. If there are invalid numbers they will be discarded \n",INT_MIN,INT_MAX,10000);
-        std::cout << "the array after moving Zeroes and keeping the same size is " << '\n';
-        moveZeroes(numbers);
-        /* this solution was 8ms */
-        break;
-      }
+    {
+      numbers = InputVector("Enter a vector of numbers of max length 10000. If there are invalid numbers they, will be discarded \n",INT_MIN,INT_MAX,10000);
+      std::cout << "The array after moving Zeroes and keeping the same size is " << '\n';
+      moveZeroes(numbers);
+      /* this solution was 8ms */
+      break;
+    }
     case 9:
-      {
-        numbers = InputVector("Enter a vector of sorted numbers. If there are invalid numbers they will be discarded \n",INT_MIN,INT_MAX,10000);
-        std::cout << "the array after removing duplicates is " << '\n';
-        len = removeDuplicates(numbers);
-        break;
-        /* this solution was 16ms */
-      }
+    {
+      numbers = InputVector("Enter a vector of sorted numbers of max length 10000. If there are invalid numbers they, will be discarded \n",INT_MIN,INT_MAX,10000);
+      std::cout << "The array after removing duplicates is " << '\n';
+      len = removeDuplicates(numbers);
+      break;
+      /* this solution was 16ms */
+    }
     case 10:
-      {
-        int val;
-        numbers = InputVector("Enter a vector of sorted numbers. If there are invalid numbers they will be discarded \n",INT_MIN,INT_MAX,10000);
-        std::cout << "please enter the value to remove from this" << '\n';
-        std::cin>> val;
-        std::cout << "the array after removing duplicates is " << '\n';
-        len = removeElement(numbers,val);
-        break;
-        /* this solution was 0ms */
-      }
+    {
+      int val;
+      numbers = InputVector("Enter a vector of sorted numbers of max length 100000. If there are invalid numbers they, will be discarded \n",INT_MIN,INT_MAX,10000);
+      std::cout << "Please enter the value to remove from this" << '\n';
+      getIntIP(val);
+      std::cout << "The array after removing duplicates is " << '\n';
+      len = removeElement(numbers,val);
+      break;
+      /* this solution was 0ms */
+    }
     case 11:
-      {
-        numbers = InputVector("Enter a vector of numbers from 1 to 100000. If there are invalid numbers they will be discarded \n",1,100000,10000);
-        std::cout << "the array after replacing each element with the largest on the right is " << '\n';
-        numbers=replaceElements(numbers);
-        break;
-        /* this solution was 24ms */
-      }
+    {
+      numbers = InputVector("Enter a vector of numbers from 1 to 100000. If there are invalid numbers they, will be discarded \n",1,100000,10000);
+      std::cout << "The array after replacing each element with the largest on the right is " << '\n';
+      numbers=replaceElements(numbers);
+      break;
+      /* this solution was 24ms */
+    }
     case 12:
-      {
-        numbers = InputVector("Enter a vector of numbers between -10000 and 10000 if there are invalid numbers they will be discarded \n",0,5000,5000);
-        std::cout << "the array or sorted by parity is " << '\n';
-        numbers = sortArrayByParity(numbers);
-        break;
-        /* this solution was 16ms */
-      }
+    {
+      numbers = InputVector("Enter a vector of max length 5000 with numbers between 0 and 5000. If there are invalid numbers they, will be discarded \n",0,5000,5000);
+      std::cout << "The array sorted by parity is " << '\n';
+      numbers = sortArrayByParity(numbers);
+      break;
+      /* this solution was 16ms */
+    }
     case 13:
-      {
-        numbers = InputVector("Enter a vector of numbers between -10000 and 10000 if there are invalid numbers they will be discarded \n",-10000,10000,10000);
-        std::cout << "the array of sorted Squares is " << '\n';
-        numbers = sortedSquares(numbers);
-        break;
-        /* this solution was 44ms */
-      }
+    {
+      numbers = InputVector("Enter a vector of numbers between -10000 and 10000 If there are invalid numbers they, will be discarded \n",-10000,10000,10000);
+      std::cout << "the array of sorted Squares is " << '\n';
+      numbers = sortedSquares(numbers);
+      break;
+      /* this solution was 44ms */
+    }
     case 14:
-      {
-        numbers = InputVector("Enter a vector of numbers. If there are invalid numbers they will be discarded. If there are less than 3 distinct numbers the largest will be displayed. \n",INT_MIN,INT_MAX,10000);
-        std::cout << "the 3rd largest number is " << thirdMax(numbers)<< '\n';
-        return true;
-        /* this solution was 24ms */
-      }
+    {
+      numbers = InputVector("Enter a vector of numbers of max length 10000. If there are invalid numbers they, will be discarded. If there are less than 3 distinct numbers the largest will be displayed. \n",INT_MIN,INT_MAX,10000);
+      std::cout << "the 3rd largest number is " << thirdMax(numbers)<< '\n';
+      return true;
+      /* this solution was 24ms */
+    }
     case 15:
-      {
-        numbers = InputVector("Enter a vector of numbers greater than 0. if there are invalid numbers they will be discarded",0,INT_MAX,10000);
-        std::cout << "the array after multiplying all elements except nth " << '\n';
-        numbers = productExceptSelf(numbers);
-        break;
-      }
-      default:
-        return false;
+    {
+      numbers = InputVector("Enter a vector of length 10000 with numbers greater than 0. If there are invalid numbers they, will be discarded\n",0,INT_MAX,10000);
+      std::cout << "The array after multiplying all elements except nth " << '\n';
+      numbers = productExceptSelf(numbers);
+      break;
+      /* this solution was 44ms */
+    }
+    case 16:
+    {
+      numbers = InputVector("Enter a vector of length 100 with numbers between 1 and 10^9 representing the coins on the ith column. Invalid numbers will be discarded \n",1,pow(10,9),100);
+      std::cout << "The minimum cost required to make all the coins on the same column is " << minCostToMoveChips(numbers) << '\n';
+      return true;
+      /* this solution was 0ms */
+    }
+    case 17:
+    {
+      numbers = InputVector("Enter a vector of max length 50000 with numbers between 1 and 10^6. If there are invalid numbers they, will be discarded. \n",1,pow(10,6),50000);
+      int threshold;
+      std::cout << "Enter a threshold between the vector length and 10^6" << '\n';
+      getIntIP(threshold,numbers.size(),pow(10,6));
+      std::cout << "The smallest divisor to get a sum under the threshold is" << smallestDivisor(numbers,threshold)<< '\n';
+      return true;
+      /* this solution was 56ms */
+    }
+    default:
+      return false;
   }
   displayVector(numbers,len);
   return true;
