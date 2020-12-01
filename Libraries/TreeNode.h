@@ -1,7 +1,7 @@
 #ifndef TreeNode_H
 #define TreeNode_H
 
-#include "VectorOperations.h"
+#include "Common.h"
 
 struct TreeNode
 {

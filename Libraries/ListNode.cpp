@@ -47,15 +47,6 @@ ListNode* InputList(std::string inputMsg, int min,int max,int len)
   return head->next;
 }
 
-void getIntIP(int &inp)
-{
-  int input;
-  std::string line;
-  std::getline(std::cin, line);
-  std::istringstream stream(line);
-  if(stream >> input)
-    inp = input;
-}
 // Add two numbers
 
 ListNode* addTwoNumbersRev(ListNode* l1, ListNode* l2)
@@ -341,6 +332,51 @@ int getDecimalValue(ListNode* head)
    return val;
 }
 
+ListNode* removeElements(ListNode* head, int val)
+{
+    if(head==nullptr)
+        return nullptr;
+    while(head!=nullptr && head->val == val)
+    {
+        head = head->next;
+    }
+    ListNode *ptr = head;
+    while(ptr!= nullptr && ptr->next!=nullptr)
+    {
+        if(ptr->next->val == val)
+            ptr->next = ptr->next->next;
+        else
+            ptr = ptr->next;
+    }
+    return head;
+}
+
+ListNode* rotateRight(ListNode* head, int k)
+{
+    if(head == NULL)
+        return NULL;
+    int len=1;
+    ListNode *start = head, *end = head;
+    while(end->next!=NULL)
+    {
+        end= end->next;
+        len++;
+    }
+    k = k%len;
+    if(k>0)
+    {
+        end->next = start;
+        for(int i=1;i<len-k;i++)
+        {
+            start = start->next;
+        }
+        end = start;
+        start = start->next;
+        end->next = nullptr;
+    }
+    return start;
+}
+
 bool ListNodeMains(int ProgNumber)
 {
   ListNode *number1 = new ListNode();
@@ -416,7 +452,7 @@ bool ListNodeMains(int ProgNumber)
       number1 = InputList("Enter a list of numbers between 0 and 100. If there are invalid numbers they will be discarded. \n",0,100,30);
       int input;
       std::cout << "Enter the index from the end you want to delete between 1 and the total number of elements" << '\n';
-      getIntIP(input);
+      getIntIP(input,1,get_length(number1));
       std::cout << "the list after deleting is: \n";
       removeNthFromEnd(number1,input);
       break;
@@ -437,6 +473,27 @@ bool ListNodeMains(int ProgNumber)
       return true;
     }
     case 10:
+    {
+      number1 = InputList("Enter a vector of numbers. if there are invalid numbers they will be discarded. \n");
+      std::cout << "Enter an element to remove from the list " << '\n';
+      int input;
+      getIntIP(input);
+      number1 = removeElements(number1,input);
+      std::cout << "the sorted list is: \n";
+      /* this solution was 28ms */
+      break;
+    }
+    case 11:
+    {
+      number1 = InputList("Enter a vector of numbers. if there are invalid numbers they will be discarded. \n",-100,100,500);
+      int input;
+      std::cout << "Enter the number of rotations of the list you would like to do" << '\n';
+      getIntIP(input,0,2*pow(10,9));
+      number1 = rotateRight(number1,input);
+      std::cout << "The array after the rotations is: " << '\n';
+      break;
+    }
+    case 12:
     {
       FlattenMain();
       return true;

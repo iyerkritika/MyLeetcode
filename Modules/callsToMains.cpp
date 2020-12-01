@@ -23,18 +23,19 @@ void vectorMenu()
   std::cout<<"3. Even number of digits in an array\n";
   std::cout<<"4. Height Checker\n";
   std::cout<<"5. Maximum consecutive ones\n";
-  std::cout<<"6. Merge Sort\n";
-  std::cout<<"7. Mountain Array\n";
-  std::cout<<"8. Move Zeroes\n";
-  std::cout<<"9. Remove duplicates\n";
-  std::cout<<"10. Remove elements\n";
-  std::cout<<"11. Replace elements\n";
-  std::cout<<"12. Sort Array by Parity\n";
-  std::cout<<"13. Sort sqaures array\n";
-  std::cout<<"14. Third Biggest Number\n";
-  std::cout<<"15. Product except self\n";
-  std::cout<<"16. Minimum cost to stack all coins onto one column\n";
-  std::cout<<"17. Find the Smallest Divisor Given a Threshold\n";
+  std::cout<<"6. Maximum consecutive ones after flipping atmost 1 0\n";
+  std::cout<<"7. Merge Sort\n";
+  std::cout<<"8. Mountain Array\n";
+  std::cout<<"9. Move Zeroes\n";
+  std::cout<<"10. Remove duplicates\n";
+  std::cout<<"11. Remove elements\n";
+  std::cout<<"12. Replace elements\n";
+  std::cout<<"13. Sort Array by Parity\n";
+  std::cout<<"14. Sort sqaures array\n";
+  std::cout<<"15. Third Biggest Number\n";
+  std::cout<<"16. Product except self\n";
+  std::cout<<"17. Minimum cost to stack all coins onto one column\n";
+  std::cout<<"18. Find the Smallest Divisor Given a Threshold\n";
 }
 
 void LinkedListMenu()
@@ -49,7 +50,9 @@ void LinkedListMenu()
   std::cout<<"7. Remove nth Element\n";
   std::cout<<"8. Insertion sort\n";
   std::cout<<"9. Convert binary to integer\n";
-  std::cout<<"10. Flatten a multi level Tree\n";
+  std::cout<<"10. Remove elements from a List\n";
+  std::cout<<"11. Rotate the List to the right\n";
+  std::cout<<"12. Flatten a multi level Tree\n";
 }
 
 void BinaryTreeMenu()
@@ -135,12 +138,12 @@ int main(int argc, char const *argv[])
     {
       case 1:
       {
-        submodule(vectorMenu,VectorMains,18);
+        submodule(vectorMenu,VectorMains,19);
         break;
       }
       case 2:
       {
-        submodule(LinkedListMenu,ListNodeMains,11);
+        submodule(LinkedListMenu,ListNodeMains,13);
         break;
       }
       case 3:

@@ -240,6 +240,35 @@
         </p>
       </details>
       <details>
+      <summary> Removing Elements in a List</summary>
+        <p>
+          Remove all elements from a linked list of integers that have value val.
+          <br>
+          <br><b>Example:</b>
+          <br>Input:  1->2->6->3->4->5->6, val = 6
+          <br>Output: 1->2->3->4->5
+          </p>
+      </details>
+      <details>
+      <summary> Rotate a list to the right </summary>
+        <p>
+          Given the head of a linked list, rotate the list to the right by k places.
+          <br>
+          <br><b>Example 1:</b>
+          <br>Input: head = [1,2,3,4,5], k = 2
+          <br>Output: [4,5,1,2,3]
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: head = [0,1,2], k = 4
+          <br>Output: [2,0,1]
+          <br>
+          <br><b>Constraints:</b>
+          <br>The number of nodes in the list is in the range [0, 500].
+          <br>-100 <= Node.val <= 100
+          <br>0 <= k <= 2 * 109
+        </p>
+      </details>
+      <details>
       <summary> Flatten a Multi level Tree</summary>
         <p>
           You are given a doubly linked list which in addition to the next and previous pointers, it could have a child pointer, which may or may not point to a separate doubly linked list. These child lists may have one or more children of their own, and so on, to produce a multilevel data structure, as shown in the example below.
@@ -402,6 +431,24 @@
           <br><b>Contraints:</b>
           <br>The input array will only contain 0 and 1.
           <br>The length of input array is a positive integer and will not exceed 10,000
+        </p>
+      </details>
+      <details>
+      <summary> Maximum consecutive 1s Flipping 1 0</summary>
+        <p>
+          Given a binary array, find the maximum number of consecutive 1s in this array if you can flip at most one 0.
+          <br>  
+          <br><b>Example 1:</b>
+          <br>Input: [1,0,1,1,0]
+          <br>Output: 4
+          <br>Explanation: Flip the first zero will get the the maximum number of consecutive 1s.
+          After flipping, the maximum number of consecutive 1s is 4.
+          <br>
+          <br><b>Note:</b>
+          <br>The input array will only contain 0 and 1.
+          <br>The length of input array is a positive integer and will not exceed 10,000
+          <br><b>Follow up:</b>
+          <br>What if the input numbers come in one by one as an infinite stream? In other words, you can't store all numbers coming from the stream as it's too large to hold in memory. Could you solve it efficiently?
         </p>
       </details>
       <details>
