@@ -702,6 +702,23 @@
           <br>nums.length <= threshold <= 10^6
         </p>
       </details>
+      <details>
+      <summary> Find the Shortest distance between two words in a vector</summary>
+        <p>
+          Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+          <br>
+          <br><b>Example 1:</b>
+          <br>Assume that words = ["practice", "makes", "perfect", "coding", "makes"].
+          <br>Input: word1 = “coding”, word2 = “practice”
+          <br>Output: 3
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: word1 = "makes", word2 = "coding"
+          <br>Output: 1
+          <br><b>Note:</b>
+          <br>You may assume that word1 does not equal to word2, and word1 and word2 are both in the list.
+        </p>
+      </details>
     </ul>
   </details>
   <details>

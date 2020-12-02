@@ -147,6 +147,6 @@ bool BinaryTreeMains(int ProgNumber)
     default:
       return false;
   }
-  displayVector(numbers);
+  displayVector<int>(numbers);
   return true;
 }

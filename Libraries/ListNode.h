@@ -1,7 +1,6 @@
 #ifndef ListNode_H
 #define ListNode_H
 //Definition for singly-linked list.
-#include <string>
 #include "ListTree.h"
 #include "Common.h"
 

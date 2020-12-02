@@ -36,6 +36,7 @@ void vectorMenu()
   std::cout<<"16. Product except self\n";
   std::cout<<"17. Minimum cost to stack all coins onto one column\n";
   std::cout<<"18. Find the Smallest Divisor Given a Threshold\n";
+  std::cout<<"19. Find the Shortest distance between 2 words in a vector\n";
 }
 
 void LinkedListMenu()
@@ -138,7 +139,7 @@ int main(int argc, char const *argv[])
     {
       case 1:
       {
-        submodule(vectorMenu,VectorMains,19);
+        submodule(vectorMenu,VectorMains,20);
         break;
       }
       case 2:

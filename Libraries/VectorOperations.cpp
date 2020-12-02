@@ -426,6 +426,26 @@ int smallestDivisor(std::vector<int>& nums, int threshold)
     return lo;
 }
 
+int shortestDistance(std::vector<std::string>& words, std::string word1, std::string word2)
+{
+    int w1 = -1, w2= -1;
+    int minDis = words.size();
+    for (int i=0;i<words.size();i++)
+    {
+       if(words[i] == word1)
+       {
+           w1 = i;
+       }
+       else if(words[i] == word2)
+       {
+            w2 = i;
+       }
+        if(w1 > -1 && w2 >-1 )
+            minDis = std::min(minDis,std::abs(w1 - w2));
+    }
+    return minDis;
+}
+
 bool VectorMains(int ProgNumber)
 {
   std::vector<int> numbers;
@@ -520,7 +540,7 @@ bool VectorMains(int ProgNumber)
       int val;
       numbers = InputVector("Enter a vector of sorted numbers of max length 100000. If there are invalid numbers they, will be discarded \n",INT_MIN,INT_MAX,10000);
       std::cout << "Please enter the value to remove from this" << '\n';
-      getIntIP(val);
+      getIP(val);
       std::cout << "The array after removing duplicates is " << '\n';
       len = removeElement(numbers,val);
       break;
@@ -577,14 +597,25 @@ bool VectorMains(int ProgNumber)
       numbers = InputVector("Enter a vector of max length 50000 with numbers between 1 and 10^6. If there are invalid numbers they, will be discarded. \n",1,pow(10,6),50000);
       int threshold;
       std::cout << "Enter a threshold between the vector length and 10^6" << '\n';
-      getIntIP(threshold,numbers.size(),pow(10,6));
+      getIP(threshold,numbers.size(),pow(10,6));
       std::cout << "The smallest divisor to get a sum under the threshold is" << smallestDivisor(numbers,threshold)<< '\n';
       return true;
       /* this solution was 56ms */
     }
+    case 19:
+    {
+      std::vector<std::string> stringVec = InputVectorString("Enter a vector of strings.\n");
+      std::string s1,s2;
+      std::cout << "Enter a string to find in this vector" << '\n';
+      getIP(s1);
+      std::cout << "Enter another word to find in this vector but it should be different that the first string to find." << '\n';
+      getIP(s2);
+      std::cout << "The minimum distance between these 2 words is: " << shortestDistance(stringVec,s1,s2)<< '\n';
+      return true;
+    }
     default:
       return false;
   }
-  displayVector(numbers,len);
+  displayVector<int>(numbers,len);
   return true;
 }

@@ -402,7 +402,7 @@ bool ListNodeMains(int ProgNumber)
       int n1LoopNode;
       ListNode *number1loop= number1;
       std::cout << "Enter a Node that the last node points to to loop ( 0 indexed) enter -1 for no loops." << '\n';
-      getIntIP(n1LoopNode);
+      getIP(n1LoopNode);
       if(n1LoopNode !=-1)
       {
         for ( int i=0;i<n1LoopNode;i++)
@@ -452,7 +452,7 @@ bool ListNodeMains(int ProgNumber)
       number1 = InputList("Enter a list of numbers between 0 and 100. If there are invalid numbers they will be discarded. \n",0,100,30);
       int input;
       std::cout << "Enter the index from the end you want to delete between 1 and the total number of elements" << '\n';
-      getIntIP(input,1,get_length(number1));
+      getIP(input,1,get_length(number1));
       std::cout << "the list after deleting is: \n";
       removeNthFromEnd(number1,input);
       break;
@@ -477,7 +477,7 @@ bool ListNodeMains(int ProgNumber)
       number1 = InputList("Enter a vector of numbers. if there are invalid numbers they will be discarded. \n");
       std::cout << "Enter an element to remove from the list " << '\n';
       int input;
-      getIntIP(input);
+      getIP(input);
       number1 = removeElements(number1,input);
       std::cout << "the sorted list is: \n";
       /* this solution was 28ms */
@@ -488,7 +488,7 @@ bool ListNodeMains(int ProgNumber)
       number1 = InputList("Enter a vector of numbers. if there are invalid numbers they will be discarded. \n",-100,100,500);
       int input;
       std::cout << "Enter the number of rotations of the list you would like to do" << '\n';
-      getIntIP(input,0,2*pow(10,9));
+      getIP(input,0,2*pow(10,9));
       number1 = rotateRight(number1,input);
       std::cout << "The array after the rotations is: " << '\n';
       break;

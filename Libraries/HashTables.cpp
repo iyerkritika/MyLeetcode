@@ -127,7 +127,7 @@ bool HashTablesMains(int ProgNumber)
       numbers = InputVector("Enter a list of numbers. Invalid numbers will be discared \n");
       std::vector<int> numbers2 = InputVector("Enter another list of numbers. Invalid numners will be discarded \n");
       std::cout << "the Intersection of these vectors is: " << '\n';
-      displayVector(intersection(numbers,numbers2));
+      displayVector<int>(intersection(numbers,numbers2));
       break;
     }
     case 5:
@@ -143,7 +143,7 @@ bool HashTablesMains(int ProgNumber)
       std::cout << "Enter a sum you would like to get to" << '\n';
       std::cin >> sum;
       std::cout << "The indices of the elements that get the sum are " << '\n';
-      displayVector(twoSum(numbers,sum));
+      displayVector<int>(twoSum(numbers,sum));
       break;
     }
     default:
