@@ -902,11 +902,11 @@
           <br>
           <br><b>For example:</b>
           <br>Given binary tree [3,9,20,null,null,15,7],
-          <br>    3
-          <br>   / \
-          <br>  9  20
-          <br>    /  \
-          <br>   15   7
+          <br>&emsp;&emsp;3
+          <br>&emsp;&emsp;/&emsp;\
+          <br>&emsp;&ensp;9&ensp;&emsp;20
+          <br> &emsp;&emsp;&emsp;/&emsp;\
+          <br>&emsp;&ensp;15&emsp;&emsp;7
           <br>return its level order traversal as:
           <br>[
           <br>  [3],
@@ -915,33 +915,35 @@
           <br>]
         </p>
       </details>
+      <details>
       <summary>Maximum depth of tree </summary>
-      <p>
-        Given the root of a binary tree, return its maximum depth.
-        <br>
-        <br>A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
-        <br>
-        <br><b>Example 1:</b>
-        <br>Input: root = [3,9,20,null,null,15,7]
-        <br>Output: 3
-        <br>
-        <br><b>Example 2:</b>
-        <br>Input: root = [1,null,2]
-        <br>Output: 2
-        <br>
-        <br><b>Example 3:</b>
-        <br>Input: root = []
-        <br>Output: 0
-        <br>
-        <br><b>Example 4:</b>
-        <br>Input: root = [0]
-        <br>Output: 1
-        <br> 
-        <br><b>Constraints:</b>
-        <br>The number of nodes in the tree is in the range [0, 104].
-        <br>-100 <= Node.val <= 100
-      </p>
+        <p>
+          Given the root of a binary tree, return its maximum depth.
+          <br>
+          <br>A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+          <br>
+          <br><b>Example 1:</b>
+          <br>Input: root = [3,9,20,null,null,15,7]
+          <br>Output: 3
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: root = [1,null,2]
+          <br>Output: 2
+          <br>
+          <br><b>Example 3:</b>
+          <br>Input: root = []
+          <br>Output: 0
+          <br>
+          <br><b>Example 4:</b>
+          <br>Input: root = [0]
+          <br>Output: 1
+          <br> 
+          <br><b>Constraints:</b>
+          <br>The number of nodes in the tree is in the range [0, 104].
+          <br>-100 <= Node.val <= 100
+        </p>
       </details>
+      <details>
       <summary> Path to sum </summary>
         <p>
           Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
@@ -952,13 +954,13 @@
           <br>
           <br>Given the below binary tree and sum = 22,
           <br>
-          <br>      <b>5</b>>
-          <br>     / \
-          <br>    <b>4</b>   8
-          <br>   /   / \
-          <br>  <b>11</b>  13  4
-          <br> /  \      \
-          <br>7    <b>2</b>      1
+          <br>&emsp;&emsp;&ensp;<b>5</b>
+          <br>&emsp;&emsp;<b>/</b>&emsp;&emsp;\
+          <br>&emsp;&ensp;<b>4</b>&emsp;&emsp;&ensp;8
+          <br>&emsp;<b>/</b>&emsp;&emsp;&emsp;/&ensp;\
+          <br>&emsp;<b>11</b>&emsp;&emsp;13&emsp;4
+          <br>&ensp;/&emsp;<b>\</b>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;\
+          <br>7&emsp;&emsp;<b>2</b>&emsp;&emsp;&emsp;&emsp;&emsp;1
           <br>return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
         </p>
       </details>
