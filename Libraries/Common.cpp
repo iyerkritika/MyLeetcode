@@ -58,6 +58,15 @@ void getIP(std::string &inp)
   getIPStream<std::string>(input);
 }
 
+void displayVectorOfVector(std::vector<std::vector<int>> v)
+{
+  for (int i=0;i<v.size();i++)
+  {
+    displayVector<int>(v[i]);
+  }
+  std::cout << '\n';
+}
+
 template<class V>
 void displayVector(std::vector<V> result,int len)
 {

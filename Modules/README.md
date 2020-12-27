@@ -269,6 +269,89 @@
         </p>
       </details>
       <details>
+      <summary> Rearrange List based on indexing parity </summary>
+        <p>
+          Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+          <br>
+          <br>You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+          <br>
+          <br><b>Example 1:</b>
+          <br>Input: 1->2->3->4->5->NULL
+          <br>Output: 1->3->5->2->4->NULL
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: 2->1->3->5->6->4->7->NULL
+          <br>Output: 2->3->6->7->1->5->4->NULL
+          <br>
+          <br><b>Constraints:</b>
+          <br>The relative order inside both the even and odd groups should remain as it was in the input.
+          <br>The first node is considered odd, the second node even and so on ...
+          <br>The length of the linked list is between [0, 10^4].
+        </p>
+      </details>
+      <details>
+      <summary> Palindrome Linked List </summary>
+        <p>
+          Given a singly linked list, determine if it is a palindrome.
+          <br>
+          <br><b>Example 1:</b>  
+          <br>Input: 1->2
+          <br>Output: false
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: 1->2->2->1
+          <br>Output: true
+          <br>
+          <br>Follow up:
+          <br>Could you do it in O(n) time and O(1) space?
+        </p>
+      </details>
+      <details>
+      <summary> Insert Element into Cyclic sorted List</summary>
+        <p>
+          Given a node from a Circular Linked List which is sorted in ascending order, write a function to insert a value insertVal into the list such that it remains a sorted circular list. The given node can be a reference to any single node in the list, and may not be necessarily the smallest value in the circular list.
+          <br>
+          <br>If there are multiple suitable places for insertion, you may choose any place to insert the new value. After the insertion, the circular list should remain sorted.
+          <br>
+          <br>If the list is empty (i.e., given node is null), you should create a new single circular list and return the reference to that single node. Otherwise, you should return the original given node.
+          <br> 
+          <br><b>Example 1:</b>
+          <br>Input: head = [3,4,1], insertVal = 2
+          <br>Output: [3,4,1,2]
+          <br>Explanation: In the figure above, there is a sorted circular list of three elements. You are given a reference to the node with value 3, and we need to insert 2 into the list. The new node should be inserted between node 1 and node 3. After the insertion, the list should look like this, and we should still return node 3.
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: head = [], insertVal = 1
+          <br>Output: [1]
+          <br>Explanation: The list is empty (given head is null). We create a new single circular list and return the reference to that single node.
+          <br>
+          <br><b>Example 3:</b>
+          <br>Input: head = [1], insertVal = 0
+          <br>Output: [1,0]
+        </p>
+      </details>
+      <details>
+      <summary>Add one to an integer</summary>
+        <p>
+          Given a non-negative integer represented as a linked list of digits, plus one to the integer.
+          <br>
+          <br>The digits are stored such that the most significant digit is at the head of the list.
+          <br>
+          <br><b>Example 1:</b>
+          <br>Input: head = [1,2,3]
+          <br>Output: [1,2,4]
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: head = [0]
+          <br>Output: [1]
+          <br>
+          <br><b>Constraints:</b>
+          <br>The number of nodes in the linked list is in the range [1, 100].
+          <br>0 <= Node.val <= 9
+          <br>The number represented by the linked list does not contain leading zeros except for the zero itself. 
+        </p>
+      </details>
+      <details>
       <summary> Flatten a Multi level Tree</summary>
         <p>
           You are given a doubly linked list which in addition to the next and previous pointers, it could have a child pointer, which may or may not point to a separate doubly linked list. These child lists may have one or more children of their own, and so on, to produce a multilevel data structure, as shown in the example below.
@@ -719,6 +802,28 @@
           <br>You may assume that word1 does not equal to word2, and word1 and word2 are both in the list.
         </p>
       </details>
+      <details>
+      <summary>Can pot flowers in a flowerbed</summary>
+        <p>
+            You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.
+            <br>
+            <br>Given an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, and an integer n, return if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule.
+            <br>
+            <br><b>Example 1:</b>
+            <br>Input: flowerbed = [1,0,0,0,1], n = 1
+            <br>Output: true
+            <br>
+            <br><b>Example 2:</b>
+            <br>Input: flowerbed = [1,0,0,0,1], n = 2
+            <br>Output: false
+            <br> 
+            <br><b>Constraints:</b>
+            <br>1 <= flowerbed.length <= 2 * 104
+            <br>flowerbed[i] is 0 or 1.
+            <br>There are no two adjacent flowers in flowerbed.
+            <br>0 <= n <= flowerbed.length
+        </p>
+      </details>
     </ul>
   </details>
   <details>
@@ -788,6 +893,73 @@
           <br>
           <br><b>Follow up:</b>
           <br>Recursive solution is trivial, could you do it iteratively?
+        </p>
+      </details>
+      <details>
+      <summary> Level order Traversal</summary>
+        <p>
+          Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+          <br>
+          <br><b>For example:</b>
+          <br>Given binary tree [3,9,20,null,null,15,7],
+          <br>    3
+          <br>   / \
+          <br>  9  20
+          <br>    /  \
+          <br>   15   7
+          <br>return its level order traversal as:
+          <br>[
+          <br>  [3],
+          <br>  [9,20],
+          <br>  [15,7]
+          <br>]
+        </p>
+      </details>
+      <summary>Maximum depth of tree </summary>
+      <p>
+        Given the root of a binary tree, return its maximum depth.
+        <br>
+        <br>A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+        <br>
+        <br><b>Example 1:</b>
+        <br>Input: root = [3,9,20,null,null,15,7]
+        <br>Output: 3
+        <br>
+        <br><b>Example 2:</b>
+        <br>Input: root = [1,null,2]
+        <br>Output: 2
+        <br>
+        <br><b>Example 3:</b>
+        <br>Input: root = []
+        <br>Output: 0
+        <br>
+        <br><b>Example 4:</b>
+        <br>Input: root = [0]
+        <br>Output: 1
+        <br> 
+        <br><b>Constraints:</b>
+        <br>The number of nodes in the tree is in the range [0, 104].
+        <br>-100 <= Node.val <= 100
+      </p>
+      </details>
+      <summary> Path to sum </summary>
+        <p>
+          Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+          <br>
+          <br>Note: A leaf is a node with no children.
+          <br>
+          <br><b>Example:</b>
+          <br>
+          <br>Given the below binary tree and sum = 22,
+          <br>
+          <br>      <b>5</b>>
+          <br>     / \
+          <br>    <b>4</b>   8
+          <br>   /   / \
+          <br>  <b>11</b>  13  4
+          <br> /  \      \
+          <br>7    <b>2</b>      1
+          <br>return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
         </p>
       </details>
     </ul>
@@ -1020,6 +1192,81 @@
         <br><b>Constraints:</b>
         <br>1 <= s.length <= 500
         <br>s contains only lowercase English letters.
+        </p>
+      </details>
+      <details>
+      <summary> Kth factor of n </summary>
+        <p>
+          Given two positive integers n and k.
+          <br>
+          <br>A factor of an integer n is defined as an integer i where n % i == 0.
+          <br>
+          <br>Consider a list of all factors of n sorted in ascending order, return the kth factor in this list or return -1 if n has less than k factors.
+          <br> 
+          <br><b>Example 1:</b>
+          <br>Input: n = 12, k = 3
+          <br>Output: 3
+          <br>Explanation: Factors list is [1, 2, 3, 4, 6, 12], the 3rd factor is 3.
+          <br>
+          <br><b>Example 2:</b>
+          <br>Input: n = 7, k = 2
+          <br>Output: 7
+          <br>Explanation: Factors list is [1, 7], the 2nd factor is 7.
+          <br>
+          <br><b>Example 3:</b>
+          <br>Input: n = 4, k = 4
+          <br>Output: -1
+          <br>Explanation: Factors list is [1, 2, 4], there is only 3 factors. We should return -1.
+          <br>
+          <br><b>Example 4:</b>
+          <br>Input: n = 1, k = 1
+          <br>Output: 1
+          <br>Explanation: Factors list is [1], the 1st factor is 1.
+          <br>
+          <br><b>Example 5:</b>
+          <br>Input: n = 1000, k = 3
+          <br>Output: 4
+          <br>Explanation: Factors list is [1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100, 125, 200, 250, 500, 1000].
+          <br> 
+          <br><b>Constraints:</b>
+          <br>1 <= k <= n <= 1000
+        </p>
+      </details>
+      <details>
+      <summary> Decode string and return letter</summary>
+        <p>
+          An encoded string S is given.  To find and write the decoded string to a tape, the encoded string is read one character at a time and the following steps are taken:
+          <br>
+          <br>If the character read is a letter, that letter is written onto the tape.
+          <br>If the character read is a digit (say d), the entire current tape is repeatedly written d-1 more times in total.
+          <br>Now for some encoded string S, and an index K, find and return the K-th letter (1 indexed) in the decoded string.
+          <br>
+          <br><b>Example 1</b>
+          <br>Input: S = "leet2code3", K = 10
+          <br>Output: "o"
+          <br>Explanation: 
+          <br>The decoded string is "leetleetcodeleetleetcodeleetleetcode".
+          <br>The 10th letter in the string is "o".
+          <br>
+          <br><b>Example 2</b>:
+          <br>Input: S = "ha22", K = 5
+          <br>Output: "h"
+          <br>Explanation: 
+          <br>The decoded string is "hahahaha".  The 5th letter is "h".
+          <br>
+          <br><b>Example 3</b>:
+          <br>Input: S = "a2345678999999999999999", K = 1
+          <br>Output: "a"
+          <br>Explanation: 
+          <br>The decoded string is "a" repeated 8301530446056247680 times.  The 1st letter is "a".
+          <br> 
+          <br><b>Constraints:</b>
+          <br>2 <= S.length <= 100
+          <br>S will only contain lowercase letters and digits 2 through 9.
+          <br>S starts with a letter.
+          <br>1 <= K <= 10^9
+          <br>It's guaranteed that K is less than or equal to the length of the decoded string.
+          <br>The decoded string is guaranteed to have less than 2^63 letters.
         </p>
       </details>
     </ul>

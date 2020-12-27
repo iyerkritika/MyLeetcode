@@ -9,6 +9,7 @@
 #include <math.h>
 #include <algorithm>
 #include <string>
+#include <tuple>
 
 std::vector<int> InputVector(std::string inputMsg, int min = INT_MIN,int max = INT_MAX,int len = INT_MAX);
 std::vector<std::string> InputVectorString(std::string inputMsg);
@@ -18,4 +19,5 @@ template<class R>
 void getIPStream(R &ip);
 void getIP(int &inp,int mini = INT_MIN, int maxi =INT_MAX);
 void getIP(std::string &inp);
+void displayVectorOfVector(std::vector<std::vector<int>> vec);
 #endif

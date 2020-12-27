@@ -1,7 +1,8 @@
 #include "TreeNode.h"
 
-TreeNode* CreateTree(std::vector<int> nodes,int nullval)
+TreeNode* CreateTree(std::vector<int> nodes,int nullval,int maxNodes)
 {
+  int numnodes = 0;
   std::vector<TreeNode*> ToVisit;
   TreeNode *head = new TreeNode();
   TreeNode *ptr;
@@ -10,6 +11,7 @@ TreeNode* CreateTree(std::vector<int> nodes,int nullval)
     head->val = nodes[0];
     ToVisit.push_back(head);
     ptr = head;
+    numnodes++;
   }
   else
   {
@@ -22,6 +24,7 @@ TreeNode* CreateTree(std::vector<int> nodes,int nullval)
       TreeNode *temp = new TreeNode(nodes[i]);
       ToVisit[0]->left = temp;
       ToVisit.push_back(temp);
+      numnodes++;
     }
     if(i+1 != nodes.size())
     {
@@ -30,9 +33,12 @@ TreeNode* CreateTree(std::vector<int> nodes,int nullval)
         TreeNode *temp = new TreeNode(nodes[i+1]);
         ToVisit[0]->right = temp;
         ToVisit.push_back(temp);
+        numnodes++;
       }
     }
     ToVisit.erase(ToVisit.begin());
+    if(numnodes> maxNodes)
+      break;
   }
   return ptr;
 }
@@ -120,6 +126,57 @@ std::vector<int> preorderTraversal(TreeNode* root)
   /* This Solution is 0ms */
 }
 
+std::vector<std::vector<int>> levelOrder(TreeNode* root) 
+{
+  std::vector<std::vector<int>> result;
+  if(root == NULL)
+    return result;
+  int i=0,j=0;
+  std::queue<std::tuple<TreeNode*,int>> toVisit;
+  toVisit.push(std::make_tuple(root,i));
+  TreeNode* current = root;
+  std::vector<int> subArr;
+  while(toVisit.size()>0)
+  {
+    current = std::get<0>(toVisit.front());            
+    i = std::get<1>(toVisit.front());
+    if(i!=j)
+    {
+      result.push_back(subArr);
+      j=i;
+      subArr.clear();
+    }
+    toVisit.pop();
+    subArr.push_back(current->val);
+    i++;
+    if(current->left!=NULL)
+      toVisit.push(std::make_tuple(current->left,i));
+    if(current->right!=NULL)
+      toVisit.push(std::make_tuple(current->right,i));
+  }
+  if(subArr.size()>0)
+  {
+    result.push_back(subArr);
+  }
+  return result;
+}
+
+int maxDepth(TreeNode* root) 
+{
+  if(!(root))
+    return 0;
+  return(std::max(maxDepth(root->right),maxDepth(root->left))+1);
+}
+
+bool hasPathSum(TreeNode* root, int sum) 
+{
+  if(root == NULL)
+    return false;
+  if(root->left == NULL && root->right == NULL && root->val == sum)
+    return true;
+  return hasPathSum(root->left,sum-root->val) || hasPathSum(root->right,sum-root->val);
+}
+
 bool BinaryTreeMains(int ProgNumber)
 {
   std::vector<int> numbers;
@@ -143,6 +200,35 @@ bool BinaryTreeMains(int ProgNumber)
       numbers=inorderTraversal(root);
       break;
       /* This Solution is 0ms */
+    }
+    case 3:
+    {
+      numbers = InputVector("Enter a vector of numbers from -100 to 100. If there are invalid numbers they will be discarded please use 101 for nullptr \n",-100,101,100);
+      root = CreateTree(numbers,101);
+      std::cout << "the order of traversal for level traversal is" << '\n';
+      displayVectorOfVector(levelOrder(root));
+      return true;
+      /* This Solution is 0ms */
+    }
+    case 4:
+    {
+      numbers = InputVector("Enter a vector of numbers from -100 to 100. If there are invalid numbers they will be discarded please use 101 for nullptr \n",-100,101,100);
+      root = CreateTree(numbers,101,104);
+      std::cout << "the maximum depth for the tree is" << maxDepth(root) <<'\n';
+      return true;
+      /* This Solution is 8ms */
+    }
+    case 5:
+    {
+      int input;
+      numbers = InputVector("Enter a vector of numbers from -100 to 100. If there are invalid numbers they will be discarded please use 101 for nullptr \n",-100,101,100);
+      root = CreateTree(numbers,101);
+      std::cout<<"Enter the sum you would like to reach. \n";
+      getIP(input);
+      std::string descision = hasPathSum(root,input)?"does ": "doesn't ";
+      std::cout << "the path from root to end leaf" << descision <<" exist. \n";
+      return true;
+      /* This Solution is 12ms */
     }
     default:
       return false;

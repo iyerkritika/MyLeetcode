@@ -37,6 +37,7 @@ void vectorMenu()
   std::cout<<"17. Minimum cost to stack all coins onto one column\n";
   std::cout<<"18. Find the Smallest Divisor Given a Threshold\n";
   std::cout<<"19. Find the Shortest distance between 2 words in a vector\n";
+  std::cout<<"20. Pot flowers in a garden\n";
 }
 
 void LinkedListMenu()
@@ -53,7 +54,11 @@ void LinkedListMenu()
   std::cout<<"9. Convert binary to integer\n";
   std::cout<<"10. Remove elements from a List\n";
   std::cout<<"11. Rotate the List to the right\n";
-  std::cout<<"12. Flatten a multi level Tree\n";
+  std::cout<<"12. Rearrange List based on indexing parity\n";
+  std::cout<<"13. Palindrome Linked List\n";
+  std::cout<<"14. Insert Element to sorted cyclic list\n";
+  std::cout<<"15. Add one to a number\n";
+  std::cout<<"16. Flatten a multi level Tree\n";
 }
 
 void BinaryTreeMenu()
@@ -61,6 +66,9 @@ void BinaryTreeMenu()
   std::cout<<"Please select from the menu\n";
   std::cout<<"1. Pre order Traversal\n";
   std::cout<<"2. In order Traversal\n";
+  std::cout<<"3. Level order Traversal\n";
+  std::cout<<"4. Max Depth of a tree\n";
+  std::cout<<"5. Path to sum\n";
 }
 
 void HashTablesMenu()
@@ -79,7 +87,9 @@ void MiscMenu()
   std::cout<<"Please select from the menu\n";
   std::cout<<"1. Convert int to wordds\n";
   std::cout<<"2. Check version Number\n";
-  std::cout<<"3. consecutive letters in a string\n";
+  std::cout<<"3. Csonsecutive letters in a string\n";
+  std::cout<<"4. Kth factor of n\n";
+  std::cout<<"5. Decode string and obtain letter at index\n";
 }
 
 template <class T>
@@ -139,17 +149,17 @@ int main(int argc, char const *argv[])
     {
       case 1:
       {
-        submodule(vectorMenu,VectorMains,20);
+        submodule(vectorMenu,VectorMains,21);
         break;
       }
       case 2:
       {
-        submodule(LinkedListMenu,ListNodeMains,13);
+        submodule(LinkedListMenu,ListNodeMains,17);
         break;
       }
       case 3:
       {
-        submodule(BinaryTreeMenu,BinaryTreeMains,3);
+        submodule(BinaryTreeMenu,BinaryTreeMains,6);
         break;
       }
       case 4:
@@ -159,7 +169,7 @@ int main(int argc, char const *argv[])
       }
       case 5:
       {
-        submodule(MiscMenu,MiscMains,4);
+        submodule(MiscMenu,MiscMains,6);
         break;
       }
       default:

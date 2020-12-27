@@ -446,6 +446,38 @@ int shortestDistance(std::vector<std::string>& words, std::string word1, std::st
     return minDis;
 }
 
+bool canPlaceFlowers(std::vector<int>& flowerbed, int n) 
+{
+  if (n == 0)
+    return true;
+  if(flowerbed.size()==1)
+    return flowerbed[0] == 0;
+  for(int i=0;i<flowerbed.size();i++)
+  {
+    if(flowerbed[i] == 0)
+    {
+      if(i==0  || i== flowerbed.size()-1)
+      {
+        int ele = i==0?1:flowerbed.size()-2;
+        if(flowerbed[ele] == 0)
+        {
+          n--;
+          flowerbed[i] = 1;
+        }
+      }
+      else
+      {
+        if(flowerbed[i-1]==0 && flowerbed[i+1]==0)
+        {
+          n--;
+          flowerbed[i] = 1;
+        }
+      }
+    }
+  }
+  return n<=0;    
+}
+
 bool VectorMains(int ProgNumber)
 {
   std::vector<int> numbers;
@@ -612,6 +644,15 @@ bool VectorMains(int ProgNumber)
       getIP(s2);
       std::cout << "The minimum distance between these 2 words is: " << shortestDistance(stringVec,s1,s2)<< '\n';
       return true;
+    }
+    case 20:
+    {
+      numbers = InputVector("Enter a vector of max length 20000 made up of only 0s and 1s. 1s means a plant is potted. Invalid numbers will be discared.\n",0,1,20000);
+      int input;
+      std::cout<<"Enter the number of plants you would like to pot.\n";
+      getIP(input,0,numbers.size());
+      std::string descision = canPlaceFlowers(numbers,input)?"is ": "isn't ";
+      std::cout<<"It "<<descision<<" possible to pot these plants\n";
     }
     default:
       return false;

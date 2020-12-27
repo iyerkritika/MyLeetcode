@@ -164,6 +164,72 @@ int maxPower(std::string s)
     return result;
 }
 
+int kthFactor(int n, int k) 
+{
+  if(n==1)
+    return 1;
+  std::set<int> factors;
+  for(int i=1;i<=n/2;i++)
+  {
+    if(n%i == 0)
+    {
+      factors.insert(i);
+      factors.insert(n/i);
+    }
+  }
+  if(k>factors.size())
+  {
+    return -1;
+  }
+  else
+  {
+    std::set<int>::iterator it=factors.begin();
+    for(int i=1; i<k; i++)
+    {
+      it++;
+    }
+    return *it;
+  }
+}
+
+std::string decodeAtIndex(std::string S, int K) 
+{
+  long totallength = 0;
+  int i = 0;
+  for (; i < S.size(); i++) 
+  {
+    if (isdigit(S[i])) 
+    {
+      totallength *= (S[i] - '0');
+    } else 
+    {
+      totallength++;
+    }
+    if (totallength >= K) 
+    {
+      break;
+    }
+  }
+  std::string res;
+  for (; i >= 0; i--) 
+  {
+    K %= totallength;
+    if (K == 0 && isalpha(S[i])) 
+    {
+      res.push_back(S[i]);
+      return res;
+    }
+    if (isdigit(S[i])) 
+    {
+      totallength /= (S[i] - '0');
+    } else 
+    {
+      totallength--;
+    }
+  }
+  return res;
+}
+
 bool MiscMains(int ProgNumber)
 {
    switch (ProgNumber)
@@ -172,7 +238,7 @@ bool MiscMains(int ProgNumber)
      {
        int number;
        std::cout << "Enter a number from 1 to 2^31-1" << '\n';
-       std::cin >> number;
+       getIP(number,1);
        std::cout << "The number in words is:" << '\n'<<numberToWords(number)<<"\n";
        break;
      }
@@ -181,9 +247,9 @@ bool MiscMains(int ProgNumber)
        std::string s1,s2;
        int answer;
        std::cout << "Enter first version number.\n" ;
-       std::cin>>s1;
+       getIP(s1);
        std::cout << "Enter second version number.\n" ;
-       std::cin>>s2;
+       getIP(s2);
        answer = compareVersion(s1,s2);
        if(answer==0)
        {
@@ -203,9 +269,30 @@ bool MiscMains(int ProgNumber)
      {
        std::string s;
        std::cout << "Enter a string of less than 500 characters." << '\n';
-       std::cin >> s;
-       std::cout << "the maximum length of the same letter in the string is "<<maxPower(s.length()>500?s.substr(0,499):s) << '\n';
+       getIP(s);
+       std::cout << "the maximum length of the same letter in the string is "<<maxPower(s.length()>500?s.substr(0,500):s) << '\n';
        break;
+     }
+     case 4:
+     {
+        int n,k;
+        std::cout<<"Enter a number between 1 and 1000.\n";
+        getIP(n,1,1000);
+        std::cout<<"Enter the number k to get the kth factor of the number entered.\n";
+        getIP(k,1,n);
+        std::cout<< "The "<<k<<"th factor of "<<n<<"is :"<< kthFactor(n,k)<<"\n";
+        break;
+     }
+     case 5:
+     {
+      std::string s;
+      int inp;
+      std::cout<<"Enter a string made up of letters(lowercase) and numbers(2 to 9) of max length 100 and min length 2. It should start with a letter. The numbers will repeat the current tape x number of times. \n";
+      getIP(s);
+      std::cout<<"Enter the number letter in the tape you want to know. \n";
+      getIP(inp,1,pow(10,9));
+      std::cout<<"The letter at the spot is"<< decodeAtIndex(s,inp)<<'\n';
+      break;
      }
      default:
       return false;

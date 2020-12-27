@@ -27,5 +27,10 @@ ListNode* insertionSortList(ListNode* head);
 int getDecimalValue(ListNode* head);
 ListNode* removeElements(ListNode* head, int val);
 ListNode* rotateRight(ListNode* head, int k);
+ListNode* oddEvenList(ListNode* head); 
+ListNode* reverseList(ListNode* head);
+bool isPalindrome(ListNode* head);
+ListNode* insertCircList(ListNode* head, int insertVal);
+ListNode* plusOne(ListNode* head); 
 bool ListNodeMains(int ProgNumber);
 #endif

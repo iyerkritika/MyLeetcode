@@ -23,5 +23,6 @@ std::vector<int> productExceptSelf(std::vector<int>& nums);
 int minCostToMoveChips(std::vector<int>& position);
 int smallestDivisor(std::vector<int>& nums, int threshold);
 int shortestDistance(std::vector<std::string>& words, std::string word1, std::string word2);
+bool canPlaceFlowers(std::vector<int>& flowerbed, int n);
 bool VectorMains(int ProgNumber);
 #endif
