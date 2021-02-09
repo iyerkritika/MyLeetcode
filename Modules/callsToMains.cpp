@@ -59,6 +59,7 @@ void LinkedListMenu()
   std::cout<<"14. Insert Element to sorted cyclic list\n";
   std::cout<<"15. Add one to a number\n";
   std::cout<<"16. Flatten a multi level Tree\n";
+  std::cout<<"17. Copy a list of Nodes with Random Pointer\n";
 }
 
 void BinaryTreeMenu()
@@ -101,6 +102,7 @@ T getOption()
   std::istringstream stream(line);
   if(stream >> input)
     return input;
+  return input;
 }
 
 void submodule( void (*menu)(),bool (*mains)(int),int max)
@@ -154,7 +156,7 @@ int main(int argc, char const *argv[])
       }
       case 2:
       {
-        submodule(LinkedListMenu,ListNodeMains,17);
+        submodule(LinkedListMenu,ListNodeMains,18);
         break;
       }
       case 3:

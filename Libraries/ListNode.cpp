@@ -31,7 +31,7 @@ void display(ListNode* root)
 ListNode* InputList(std::string inputMsg, int min,int max,int len)
 {
   ListNode *head = new ListNode();
-  int input,length;
+  int input,length=0;
   std::string line;
   std::cout<< inputMsg;
   std::getline(std::cin, line);
@@ -655,6 +655,14 @@ bool ListNodeMains(int ProgNumber)
     {
       FlattenMain();
       return true;
+    }
+    case 17:
+    {
+       RandomListNode *list = InputRandomList();
+       RandomListNode *copyList = copyRandomList(list);
+       std::cout<<"After copying the list made, the following is the list\n ";
+       displayRandom(copyList);
+       return true;
     }
     default:
       return false;

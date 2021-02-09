@@ -2,7 +2,7 @@
 #define ListNode_H
 //Definition for singly-linked list.
 #include "ListTree.h"
-#include "Common.h"
+#include "RandomListNode.h"
 
 struct ListNode
 {
